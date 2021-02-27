@@ -1,6 +1,6 @@
 ---
 title: "Macroeconomía II"
-subtitle: "Tarea 1: Consumo"
+subtitle: "Tarea 2: Inversión"
 author: 
   - Germán Augusto Campos Ortiz^[gacampos@colmex.mx] 
   - Marcos Ehekatzin García Guzmán^[marcgarcia@colmex.mx]
@@ -33,46 +33,13 @@ options(knitr.duplicate.label = "allow")
 ```
 
 
-# Ejercicios de consumo - Romer
+# Ejercicios de inversión - Romer
 
-```{r child = 'Ej181.Rmd'}
-```
 
-\newpage
-
-```{r child = '82_Romer.Rmd'}
-```
-\newpage
-```{r child = 'problrma_4-.Rmd'}
-```
-\newpage
-```{r child = 'Pregunta_1_85.Rmd'}
-```
- \newpage
-```{r child = 'EJ186.Rmd'}
-```
-
-\newpage
 
 # Ejercicios prácticos
 
-```{r child = 'Ejercicio 2.Rmd'}
-```
-\newpage
 
-
-
-```{r child = 'Problema 3.Rmd'}
-```
-\newpage
-```{r child = 'Ej_4.Rmd'}
-```
-\newpage
-```{r child = 'Pregunta_5_2.Rmd'}
-```
-
-```{r child = 'Pregunta_6 (1).Rmd'}
-```
 
 \newpage
 
