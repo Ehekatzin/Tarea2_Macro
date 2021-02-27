@@ -1,0 +1,80 @@
+---
+title: "Macroeconomía II"
+subtitle: "Tarea 1: Consumo"
+author: 
+  - Germán Augusto Campos Ortiz^[gacampos@colmex.mx] 
+  - Marcos Ehekatzin García Guzmán^[marcgarcia@colmex.mx]
+  - Magdaleno Mendoza del Toro^[mamendoza@colmex.mx]
+  - Sergio Arturo Vargas Magaña^[sevargas@colmex.mx]
+date: ""
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+tables: true
+toc-title: Contenido
+urlcolor: blue
+header-includes:
+   - \usepackage[nottoc]{tocbibind} \usepackage{graphicx} \usepackage{amsmath} \usepackage{fancyhdr} \pagestyle{fancy} \usepackage{enumitem} \usepackage[spanish]{babel} \fancyhead[L]{\includegraphics[width=3.5cm]{colmex.jpg}}
+   - \renewcommand{\listfigurename}{Lista de figuras}
+   - \renewcommand{\listtablename}{Lista de tablas}
+---
+
+
+\newpage 
+ 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tinytex)
+library(ggplot2)
+options(knitr.duplicate.label = "allow")
+```
+
+
+# Ejercicios de consumo - Romer
+
+```{r child = 'Ej181.Rmd'}
+```
+
+\newpage
+
+```{r child = '82_Romer.Rmd'}
+```
+\newpage
+```{r child = 'problrma_4-.Rmd'}
+```
+\newpage
+```{r child = 'Pregunta_1_85.Rmd'}
+```
+ \newpage
+```{r child = 'EJ186.Rmd'}
+```
+
+\newpage
+
+# Ejercicios prácticos
+
+```{r child = 'Ejercicio 2.Rmd'}
+```
+\newpage
+
+
+
+```{r child = 'Problema 3.Rmd'}
+```
+\newpage
+```{r child = 'Ej_4.Rmd'}
+```
+\newpage
+```{r child = 'Pregunta_5_2.Rmd'}
+```
+
+```{r child = 'Pregunta_6 (1).Rmd'}
+```
+
+\newpage
+
+\listoffigures
+\listoftables
