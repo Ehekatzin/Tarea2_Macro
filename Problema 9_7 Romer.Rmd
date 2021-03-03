@@ -1,0 +1,454 @@
+---
+title: "P97Romer"
+author: "Germán Campos Ortíz"
+date: "28/2/2021"
+output: pdf_document
+header-includes:
+  \usepackage{enumitem} \usepackage{tikz} \usepackage{pgfplots}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Problema 9.7 
+
+### Descripción del problema: 
+
+Considere el modelo de inversión en las Secciones 9.2-9.5. Describa los efectos de cada uno de los siguientes cambios en $\dot{K} =0$ y $\dot{q} = 0$, en $K$ y $q$ en el momento del cambio y en su comportamiento a lo largo del tiempo. En cada caso, suponga que $K$ y $q$ están inicialmente en sus valores de equilibrio a largo plazo.
+
+\begin{enumerate}[label = (\alph*)]
+\item Una guerra destruye la mitad del capital social.
+\item El gobierno grava los rendimientos de las empresas propietarias a una tasa $\tau$, de modo que las ganancias de una empresa por unidad de capital para un stock de capital agregado dado sean $(1 -\tau) \pi(K(t))$ en lugar de $\pi(K(t))$.
+\item El gobierno grava la inversión. Específicamente, las empresas pagan al gobierno $\gamma$ por cada unidad de capital que adquieren y reciben un subsidio de $\gamma$ por cada unidad de desinversión.
+\end{enumerate}
+
+
+### Solución 
+
+Antes de iniciar la solución de cada uno de los items, se expondrán las variables y ecuaciones principales a utilizar. 
+
+Primero, el valor de mercado de capital es $q$. La ecuación de movimiento para q es: 
+
+$$
+\dot{q} (t) = r q(t) - \pi (K(t))
+$$
+Esta ecuación indica que $q$ es constante siempre que $rq = \pi (K)$ o bien, $q = \frac{\pi (K)}{r}$. Por lo tanto, $\dot{q} = 0$ se cumple si $q = \frac{\pi (K)}{r}$. Así mismo, es importante considerar que $\pi'(\bullet) = 0$, por lo que $\pi (K)$ disminuye con $K$. Dado esto, el conjunto de puntos que satisface la ecuación de movimiento de $q$ es decreciente en el espacio $(K, q)$. La ecuación implica que $\dot{q}$ aumenta en la medida que aumenta $K$, por lo que $\dot{q}$ es positivo a la derecha de la curva en donde  $\dot{q}=0$ y negativo a la izquierda. 
+
+Por su parte, la ecuación de movimiento para el capital es:
+
+$$
+\dot{K}(t) = f(q(t))
+$$
+
+En donde $f(q) = NC'^{-1} (q-1)$ con $f(1) = 0$ y $f'(\bullet)>0$. Esto viene dado por el supuesto de que $q$ es idéntica para todas las empresas, entonces todas eligen el mismo valor de $I$, y ante esto, la tasa de cambio del stock de capital agregado $(\dot{K})$ es el producto entre el número de empresas de la industria y el valor de $I$ que satisface la condición $1 + C'(I(t)) = q(t)$. Dado esto,llegamos a que como $C'(I)$ aumenta en la medida que aumenta $I$, entonces $f(q)$ aumentaría según lo hace $q$. Así mismo, como $C'(0)$ es igual a 0, $f(1)$ también sería igual a 0. Ahora bien, dado lo anterior, la ecuación de movimiento del capital agregado implica que $\dot{K}$ es positivo cuando $q>1$, negativo cuando $q<1$ y cero si $q=1$. 
+
+Teniendo en cuenta las condiciones de la ecuación de movimiento del capital agregado $(\dot{K})$ y de la ecuación de movimiento del valor de mercado de capital $(\dot{q})$, el comportamiento de estas puede ser representadas mediante el siguiente diagrama de fase. 
+
+
+
+\begin{figure}
+\centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}}       
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da2665687594738346] 
+\draw [line width=1.5]    (140,271.5) -- (475,270.01) ;
+\draw [shift={(478,270)}, rotate = 539.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da02207496719443891] 
+\draw [line width=1.5]    (140,271.5) -- (139.01,19.5) ;
+\draw [shift={(139,16.5)}, rotate = 449.78] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da5701838629633615] 
+\draw [line width=1.5]    (140.67,149.67) -- (454.33,149.67) ;
+%Curve Lines [id:da802881175133451] 
+\draw [line width=1.5]    (183.67,54.33) .. controls (223.67,76.33) and (379,215.67) .. (452.33,242.33) ;
+%Straight Lines [id:da6588016627860389] 
+\draw    (231.4,201.8) -- (231.22,222.2) ;
+\draw [shift={(231.2,224.2)}, rotate = 270.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7861331264596492] 
+\draw    (231.4,201.8) -- (208.8,201.8) ;
+\draw [shift={(206.8,201.8)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da17257320196055237] 
+\draw [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]   (454.6,200.2) -- (432,200.2) ;
+\draw [shift={(430,200.2)}, rotate = 360] [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7645663546292356] 
+\draw [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]   (454.6,200.2) -- (454.6,180.2) ;
+\draw [shift={(454.6,178.2)}, rotate = 450] [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da908028499232818] 
+\draw [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]   (169,101.8) -- (169.36,121.8) ;
+\draw [shift={(169.4,123.8)}, rotate = 268.96] [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7746471851479897] 
+\draw [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]   (169,101.8) -- (189.8,101.44) ;
+\draw [shift={(191.8,101.4)}, rotate = 538.99] [color={rgb, 255:red, 102; green, 161; blue, 34 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5871079816591449] 
+\draw    (340.6,89.4) -- (340.42,68.6) ;
+\draw [shift={(340.4,66.6)}, rotate = 449.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da45310630086887693] 
+\draw    (340.6,89.4) -- (361,89.4) ;
+\draw [shift={(363,89.4)}, rotate = 540] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (120,3.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {q};
+% Text Node
+\draw (482.67,256.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {K};
+% Text Node
+\draw (460,132.33) node [anchor=north west][inner sep=0.75pt]    {$\dot{K} \ =0$};
+% Text Node
+\draw (120.67,137.33) node [anchor=north west][inner sep=0.75pt]    {$1$};
+% Text Node
+\draw (306,128) node [anchor=north west][inner sep=0.75pt]   [align=left] {\textcolor[rgb]{0.82,0.01,0.11}{E}};
+% Text Node
+\draw (456.67,222.67) node [anchor=north west][inner sep=0.75pt]    {$\dot{q} \ =0$};
+
+\end{tikzpicture}
+
+\caption{Diagrama de fase} \label{fig:D1}
+\end{figure}
+
+
+Ahora bien, dado el diagrama de fase anterior, el equilibrio en el largo plazo (punto E en el diagrama) se caracteriza porque en dicho punto se cumple que $q=1$ (lo que a su vez supone que $\dot{K}=0$) y que $\dot{q}=0$. Esto se cumple siguiendo la idea de que cuando $q=1$, el valor de mercado y el valor de reposición del capital son iguales (suponemos el precio del capital igual a 1), por tanto, las empresas no tienen ningún incentivo para aumentar o reducir su stock de capital. 
+
+De acuerdo a las fuerzas que se presentaron en el diagrama de fase anterior, el movimiento hacía la búsqueda del equilibrio depende de un punto de silla que se expondrá de color azul a continuación. 
+
+
+\begin{figure}
+\centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}}         
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da20706808480402294] 
+\draw [line width=1.5]    (178,269.4) -- (513,267.92) ;
+\draw [shift={(516,267.9)}, rotate = 539.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da7887482225026021] 
+\draw [line width=1.5]    (178,269.4) -- (177.01,17.4) ;
+\draw [shift={(177,14.4)}, rotate = 449.78] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da8646532454015037] 
+\draw [line width=1.5]    (178.67,147.57) -- (492.33,147.57) ;
+%Curve Lines [id:da6650482113220597] 
+\draw [line width=1.5]    (221.67,52.24) .. controls (261.67,74.24) and (417,213.57) .. (490.33,240.24) ;
+%Curve Lines [id:da9298396823300099] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (189,88.77) .. controls (191.02,89.32) and (208.61,95.67) .. (234.7,105.2) .. controls (250.11,110.83) and (268.48,117.57) .. (288.35,124.88) .. controls (381.46,159.12) and (507.52,205.87) .. (516.2,209.57) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (228.78,98.17) .. controls (232.23,102.27) and (236.06,105.35) .. (240.24,107.43) .. controls (235.69,106.36) and (230.78,106.29) .. (225.51,107.25) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (247.64,104.63) .. controls (251.1,108.72) and (254.91,111.81) .. (259.1,113.89) .. controls (254.55,112.82) and (249.64,112.76) .. (244.37,113.7) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (275.07,114.45) .. controls (278.53,118.55) and (282.34,121.64) .. (286.52,123.72) .. controls (281.98,122.65) and (277.07,122.59) .. (271.79,123.53) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (298.5,123.03) .. controls (301.96,127.12) and (305.77,130.21) .. (309.95,132.29) .. controls (305.41,131.22) and (300.5,131.16) .. (295.22,132.1) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (505.27,210.7) .. controls (501.84,206.57) and (498.04,203.46) .. (493.88,201.35) .. controls (498.41,202.45) and (503.32,202.55) .. (508.61,201.64) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (480.77,201.7) .. controls (477.34,197.57) and (473.54,194.46) .. (469.38,192.35) .. controls (473.91,193.45) and (478.82,193.55) .. (484.11,192.64) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (455.1,191.53) .. controls (451.67,187.41) and (447.88,184.29) .. (443.71,182.19) .. controls (448.25,183.29) and (453.16,183.38) .. (458.44,182.48) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (395.27,170.2) .. controls (391.84,166.07) and (388.04,162.96) .. (383.88,160.85) .. controls (388.41,161.95) and (393.32,162.05) .. (398.61,161.14) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (428.27,182.36) .. controls (424.84,178.24) and (421.04,175.13) .. (416.88,173.02) .. controls (421.41,174.12) and (426.32,174.22) .. (431.61,173.31) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (204.12,89.34) .. controls (207.58,93.43) and (211.39,96.52) .. (215.57,98.6) .. controls (211.03,97.53) and (206.12,97.47) .. (200.84,98.41) ;
+
+% Text Node
+\draw (157.67,0.24) node [anchor=north west][inner sep=0.75pt]   [align=left] {q};
+% Text Node
+\draw (516.67,248.57) node [anchor=north west][inner sep=0.75pt]   [align=left] {K};
+% Text Node
+\draw (498,130.24) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{K} \ =0$};
+% Text Node
+\draw (156.47,135.84) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$1$};
+% Text Node
+\draw (342.45,123.45) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize] [align=left] {\textcolor[rgb]{0.82,0.01,0.11}{E}};
+% Text Node
+\draw (523,199.24) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{q} \ =0$};
+
+
+\end{tikzpicture}
+
+\caption{Camino de silla al equilibrio} \label{fig:D2}
+\end{figure}
+
+
+#### Inciso a) 
+
+La destrucción de la mitad del capital causada por la guerra no genera desplazamientos en las curvas $\dot{K}=0$ y $\dot{q}=0$, a razón de que ambas curvas ya están reflejadas en el gráfico con el nivel de $K$ en el eje de las abscisas, por lo que $K$ puede variar sin desplazar ninguna de las curvas. Suponemos que se inicia en el punto de equilibrio a largo plazo (E), en el cual existe un nivel de capital $K$, tal como se puede apreciar en el siguiente gráfico. En el momento en el que ocurre la destrucción de la mitad del capital existente, $K$ se reduce a $K_1 = \frac{K}{2}$. 
+
+Ahora, dado que el nivel de capital se redujo, los beneficios para las firmas son más altos a un nivel de $K$ más bajo, por lo cual, el capital que queda es más valioso y por lo tanto, el valor de mercado de capital ahora es más alto, lo que significa un incremento de $q$. Entonces $q$ se incrementa a un nuevo nivel que llamamos $q_1$, llevando a la economía al punto A, y consiguiendo con esto que la economía regrese a la senda del punto de silla.
+
+
+
+\begin{figure}
+\centering
+
+\tikzset{every picture/.style={line width=0.75pt}}       
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,340); %set diagram left start at 0, and has height of 340
+
+%Straight Lines [id:da5695709027691125] 
+\draw [line width=1.5]    (160,280.83) -- (495,279.35) ;
+\draw [shift={(498,279.33)}, rotate = 539.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da030671972058405883] 
+\draw [line width=1.5]    (160,280.83) -- (159.01,28.83) ;
+\draw [shift={(159,25.83)}, rotate = 449.78] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da5647106201028247] 
+\draw [line width=1.5]    (160.67,159) -- (474.33,159) ;
+%Curve Lines [id:da6552552212751523] 
+\draw [line width=1.5]    (203.67,63.67) .. controls (243.67,85.67) and (399,225) .. (472.33,251.67) ;
+%Curve Lines [id:da09735810108183163] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (171,100.2) .. controls (173.02,100.75) and (190.61,107.1) .. (216.7,116.63) .. controls (232.11,122.26) and (250.48,129) .. (270.35,136.3) .. controls (363.46,170.55) and (489.52,217.3) .. (498.2,221) ;
+%Shape: Circle [id:dp5294922793575954] 
+\draw  [color={rgb, 255:red, 67; green, 100; blue, 34 }  ,draw opacity=1 ][fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ][line width=2.25]  (188.47,106.28) .. controls (188.45,105.48) and (189.07,104.81) .. (189.87,104.78) .. controls (190.67,104.76) and (191.34,105.39) .. (191.37,106.19) .. controls (191.4,106.99) and (190.77,107.66) .. (189.97,107.68) .. controls (189.17,107.71) and (188.5,107.08) .. (188.47,106.28) -- cycle ;
+%Straight Lines [id:da35516551561983456] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (330.6,162.2) -- (331,281.8) ;
+%Straight Lines [id:da7184645142620345] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (190.2,110.2) -- (191,280.4) ;
+%Straight Lines [id:da23234015487531168] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (187.29,106.21) -- (157.67,106.08) ;
+%Curve Lines [id:da4145950394356426] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=1 ][line width=0.75]    (193.24,278.25) .. controls (197.99,273.96) and (203.66,270.43) .. (209.96,267.59) .. controls (216.74,264.54) and (224.25,262.28) .. (232.12,260.75) .. controls (247.01,257.86) and (263.16,257.55) .. (278.06,259.29) .. controls (284.3,260.01) and (290.31,261.09) .. (295.92,262.49) .. controls (311.15,266.29) and (323.41,272.42) .. (329,280.08) ;
+\draw [shift={(201.18,272.27)}, rotate = 325.02] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(220.86,263.53)}, rotate = 341.35] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(255.09,258.29)}, rotate = 357.29] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(287.04,260.61)}, rotate = 8.93] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(313.98,268.79)}, rotate = 23.31] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(191,280.4)}, rotate = 314.36] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+%Curve Lines [id:da004229306668116495] 
+\draw [color={rgb, 255:red, 128; green, 128; blue, 128 }  ,draw opacity=1 ]   (163.34,109.26) .. controls (171.68,114.75) and (176.37,119.87) .. (178.53,124.63) .. controls (180.91,129.86) and (180.26,134.65) .. (178.1,139.05) .. controls (174.23,146.92) and (165.54,153.52) .. (160.67,159) ;
+\draw [shift={(172,115.99)}, rotate = 40.02] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(180.03,131.94)}, rotate = 81.08] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(170.05,149.62)}, rotate = 132.02] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw [shift={(160.75,107.63)}, rotate = 31.49] [fill={rgb, 255:red, 128; green, 128; blue, 128 }  ,fill opacity=1 ][line width=0.08]  [draw opacity=0] (7.14,-3.43) -- (0,0) -- (7.14,3.43) -- cycle    ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (210.78,109.6) .. controls (214.24,113.69) and (218.06,116.78) .. (222.24,118.86) .. controls (217.69,117.79) and (212.78,117.72) .. (207.51,118.67) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (229.64,116.05) .. controls (233.1,120.15) and (236.91,123.24) .. (241.1,125.32) .. controls (236.55,124.25) and (231.64,124.19) .. (226.37,125.13) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (257.07,125.88) .. controls (260.53,129.98) and (264.34,133.07) .. (268.52,135.15) .. controls (263.98,134.08) and (259.07,134.02) .. (253.79,134.96) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (280.5,134.45) .. controls (283.96,138.55) and (287.77,141.64) .. (291.95,143.72) .. controls (287.41,142.65) and (282.5,142.59) .. (277.22,143.53) ;
+
+% Text Node
+\draw (142.67,9.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {q};
+% Text Node
+\draw (498.67,260) node [anchor=north west][inner sep=0.75pt]   [align=left] {K};
+% Text Node
+\draw (480,141.67) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{K} \ =0$};
+% Text Node
+\draw (138.47,147.27) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$1$};
+% Text Node
+\draw (324.45,134.88) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize] [align=left] {\textcolor[rgb]{0.82,0.01,0.11}{E}};
+% Text Node
+\draw (218,48.67) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{q} \ =0$};
+% Text Node
+\draw (185.13,82.99) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 10; green, 12; blue, 241 }  ,opacity=1 ] [align=left] {A};
+% Text Node
+\draw (135.75,95.55) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$q_{0}$};
+% Text Node
+\draw (168.04,282.36) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$K_{0} =\frac{1}{2}$};
+% Text Node
+\draw (322.32,292.43) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$K$};
+
+
+\end{tikzpicture}
+
+\caption{Diagrama Inciso a)} \label{fig:D3}
+\end{figure}
+
+Posteriormente, la economía se empieza a mover por la senda del punto de silla, y a medida que esto ocurre, $q$ se reduce y $K$ aumenta. Esto ocurre debido a que el mayor valor de mercado del capital (incremento de ($q$) atrae inversiones, y por tanto, el capital comienza a incrementarse ($K$) recuperándose. En la medida en que esto ocurre, los beneficios empiezan a reducirse, lo que conlleva a que también se reduzca el valor de mercado del capital. Y este proceso continua de forma constante hasta que el valor de mercado del capital ($q$) regrese a su valor de equilibrio a largo plazo (1) y el stock de capital vuelva a su vez a su nivel original. Por tanto, la economía al cabo de un tiempo regresa al punto de equilibrio de largo plazo (E). 
+
+Intuitivamente, el mayor valor de mercado del capital atrae inversiones y, por lo tanto, el capital social comienza a recuperarse. Mientras lo hace, las ganancias comienzan a caer y, por lo tanto, también lo hace el valor de mercado de
+capital. Este proceso continúa hasta que el valor de mercado del capital vuelve a su valor de equilibrio a largo plazo de uno y el stock de capital vuelve a su nivel original. Por tanto, la economía finalmente regresa al punto E.
+
+
+### Inciso b)
+
+Una vez se graban con impuestos a las empresas propietarias del capital, la función de beneficios de las firmas para una $K$ dada ahora es $(1 -\tau) \pi(K)$ en lugar de $\pi(K)$. Ante esto, la condición requerida para $\dot{q}=0$ ahora es $q = (1-\tau) \frac{\pi (K)}{r}$ en lugar de $q = \frac{\pi (K)}{r}$. De acuerdo a esto, ante cualquier $K$ dada, el valor de mercado del capital $(q)$ que permite que $\dot{q}=0$ es ahora más bajo, por lo que la nueva curva de $\dot{q}=0$ ahora se debería encontrar más abajo que la curva $\dot{q}=0$ anterior. 
+
+Además de esto, la pendiente de $\dot{q}=0$ ahora es 
+
+$$
+\frac{\partial q}{\partial K} = (1-\tau) \frac{\pi' (K)}{r}
+$$
+En lugar de la pendiente anterior, que era $\frac{\partial q}{\partial K} = \frac{\pi' (K)}{r}$. Ahora bien, debido a que $(1-\tau) < 1$, la nueva pendiente de la curva $\dot{q}=0$ es menos negativa que la anterior pendiente, por tanto la nueva curva de $\dot{q}=0$ es más plana que la anterior. Por su parte, la curva $\dot{K} = 0$ no se ve afectada. En la siguiente figura se expone lo anteriormente mencionado. 
+
+
+\begin{figure}
+\centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}}       
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,389); %set diagram left start at 0, and has height of 389
+
+%Straight Lines [id:da8300627693930687] 
+\draw [line width=1.5]    (180,300.83) -- (515,299.35) ;
+\draw [shift={(518,299.33)}, rotate = 539.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da258080764545328] 
+\draw [line width=1.5]    (180,300.83) -- (179.01,48.83) ;
+\draw [shift={(179,45.83)}, rotate = 449.78] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da6401982556765913] 
+\draw [line width=1.5]    (180.67,179) -- (494.33,179) ;
+%Curve Lines [id:da7588567899976812] 
+\draw [line width=1.5]    (226.5,64.75) .. controls (264.5,95.75) and (415,239.25) .. (468.5,275.25) ;
+%Curve Lines [id:da44771958293410496] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (191,120.2) .. controls (193.02,120.75) and (210.61,127.1) .. (236.7,136.63) .. controls (252.11,142.26) and (270.48,149) .. (290.35,156.3) .. controls (383.46,190.55) and (509.52,237.3) .. (518.2,241) ;
+%Shape: Circle [id:dp7681885307864105] 
+\draw  [color={rgb, 255:red, 67; green, 100; blue, 34 }  ,draw opacity=1 ][fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ][line width=2.25]  (352.3,211.95) .. controls (352.28,211.14) and (352.91,210.48) .. (353.71,210.45) .. controls (354.51,210.42) and (355.18,211.05) .. (355.2,211.85) .. controls (355.23,212.65) and (354.6,213.32) .. (353.8,213.35) .. controls (353,213.37) and (352.33,212.75) .. (352.3,211.95) -- cycle ;
+%Straight Lines [id:da923515481114189] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (353.6,182.2) -- (354,301.8) ;
+%Straight Lines [id:da02042522187003004] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (266,180.75) -- (266.5,298.9) ;
+%Curve Lines [id:da7971635179144327] 
+\draw [line width=1.5]    (213.5,148.25) .. controls (253.5,170.25) and (399.5,258.75) .. (464.5,290.25) ;
+%Curve Lines [id:da31078755502066535] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (184.14,149.76) .. controls (186.16,150.31) and (203.75,156.66) .. (229.83,166.18) .. controls (255.92,175.71) and (263.61,178.55) .. (283.49,185.86) .. controls (290.52,188.45) and (319.23,199.08) .. (353.75,211.9) .. controls (416.71,235.27) and (499.03,265.91) .. (504.64,268.31) ;
+%Straight Lines [id:da1492861075480325] 
+\draw    (353.6,182.2) -- (353.33,204.65) ;
+\draw [shift={(353.31,206.65)}, rotate = 270.69] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (328.08,208.21) .. controls (324.9,203.9) and (321.29,200.56) .. (317.26,198.21) .. controls (321.72,199.58) and (326.62,199.97) .. (331.95,199.37) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (311.86,201.99) .. controls (308.68,197.68) and (305.08,194.34) .. (301.04,191.99) .. controls (305.51,193.36) and (310.4,193.75) .. (315.72,193.15) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (343.86,213.76) .. controls (340.68,209.45) and (337.08,206.12) .. (333.04,203.76) .. controls (337.51,205.14) and (342.4,205.52) .. (347.72,204.93) ;
+%Straight Lines [id:da9076342189676534] 
+\draw [color={rgb, 255:red, 189; green, 16; blue, 224 }  ,draw opacity=1 ]   (336,312.25) -- (281.5,312.49) ;
+\draw [shift={(279.5,312.5)}, rotate = 359.75] [color={rgb, 255:red, 189; green, 16; blue, 224 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (162.67,29.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {q};
+% Text Node
+\draw (518.67,280) node [anchor=north west][inner sep=0.75pt]   [align=left] {K};
+% Text Node
+\draw (500,161.67) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{K} \ =0$};
+% Text Node
+\draw (158.47,167.27) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$1$};
+% Text Node
+\draw (241.5,51.67) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{q_{0}} =0$};
+% Text Node
+\draw (353.58,197.38) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 10; green, 12; blue, 241 }  ,opacity=1 ] [align=left] {A};
+% Text Node
+\draw (155.75,115.55) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$q_{0}$};
+% Text Node
+\draw (255.04,303.36) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$K_{1}$};
+% Text Node
+\draw (342.82,303.93) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$K_{0}$};
+% Text Node
+\draw (347.5,157.5) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$E_{0}$};
+% Text Node
+\draw (371.11,261.96) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize,rotate=-0.43]  {$\dot{q_{1}} =0$};
+% Text Node
+\draw (258.5,158) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$E_{1}$};
+
+
+\end{tikzpicture}
+
+\caption{Diagrama Inciso b)} \label{fig:D4}
+\end{figure}
+
+
+
+En el diagrama de fase se observa el desplazamiento hacía abajo de la curva $\dot{q}=0$, teniendo en cuenta que la nueva curva es más plana que la anterior. Se nombrará a la curva nueva como $\dot{q_1}=0$ y a la curva anterior como $\dot{q_0}=0$ con el propósito de diferenciarlas. El mecanismo de transmisión que se aprecia en el diagrama de fase anterior es el siguiente. 
+
+El análisis inicia nuevamente en un punto de equilibrio de largo plazo que llamaremos $E_0$, en el cual tenemos un nivel de capital de equilibrio $K_0$. El gobierno al cobrar una fracción de los beneficios como impuestos, genera que el capital existente sea menos valioso, por lo que el valor de mercado de capital ($q$) se reduce. Al reducirse el valor de ($q$), la economía se mueve del punto $E_0$ al punto $A$, logrando que la economía se ubique en una nueva senda de punto de silla de equilibrio, correspondiente a la nueva curva $\dot{q_1}=0$. 
+
+Posteriormente, la economía empieza a avanzar por la nueva senda de punto de silla, y en la medida que esto ocurre, $K$ se reduce y $q$ se incrementa. La razón para que esto ocurra es porque el menor valor de mercado del capital ($q$) desmotiva la inversión, y por esto, el stock de capital se empieza a reducir. Tras ocurrir esto, los beneficios de las firmas empiezan a aumentar, dado que a menor capital los beneficios son mayores. En el ritmo en que los beneficios aumentan, el valor de mercado del capital ($q$), también lo hace. Este proceso continua hasta que el valor de mercado del capital regresa a su nuevo valor de equilibrio de largo plazo en el punto $E_1$, en el cual el capital se encuentra en un nivel permanentemente más bajo ($K_1$).  
+
+Finalmente la economía termina en el punto $E_1$. En este punto, el menor capital, y por tanto, los mayores beneficios antes de los impuestos compensan el hecho de que el gobierno está cobrando una fracción de los beneficios mediante la imposición del impuesto. 
+
+### Inciso c)
+
+En este escenario, el gobierno grava la inversión. Las empresas pagan al gobierno $\gamma$ por cada unidad de capital que adquieren, y reciben un subsidio de $\gamma$ por cada unidad de desinversión.
+
+En el modelo original descrito al inicio de esta sección se llegó a que $\dot{K}$ debe cumplir la condición $1 + C'(I(t)) = q(t)$, la cual era una condición de optimización que indica que la empresa invertirá hasta el punto en el que el costo de adquirir capital ($1+ C'(I)$) sea igual al valor de mercado de ese capital ($q$). Ahora bien, con la inclusión del impuesto a la inversión, el costo de adquirir una unidad de capital es el precio de compra (el cual se supone que es 1) más el impuesto, $\gamma$, más el costo de ajuste marginal ($C'(I)$), por lo cual la condición es: 
+$$
+1 + \gamma+ C'(I(t)) = q(t)
+$$
+Dado que $C'(0) = 0$, esta ultima ecuación implica que $I(t)$ es cero (y por lo tanto, $\dot{K}=0$) cuando $q(t) = 1 + \gamma$. Ante esto, la ecuación para la nueva curva $\dot{K}=0$ es ahora $q = 1 + \gamma$.
+
+Entonces, un impuesto a la inversión de $\gamma$ desplaza geometricamente a la curva $\dot{K}=0$ hacia arriba, mientras que la curva $\dot{q}=0$ no se ve afectada. 
+
+
+\begin{figure}
+\centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}}        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,342); %set diagram left start at 0, and has height of 342
+
+%Straight Lines [id:da3495670299364013] 
+\draw [line width=1.5]    (166,290.9) -- (501,289.42) ;
+\draw [shift={(504,289.4)}, rotate = 539.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da6272676238832013] 
+\draw [line width=1.5]    (166,290.9) -- (165.01,38.9) ;
+\draw [shift={(165,35.9)}, rotate = 449.78] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
+%Straight Lines [id:da044465773993144] 
+\draw [line width=1.5]    (166.67,169.07) -- (480.33,169.07) ;
+%Curve Lines [id:da7416390283812884] 
+\draw [line width=1.5]    (203,69.67) .. controls (241,100.67) and (411.67,222.65) .. (465.17,258.65) ;
+%Curve Lines [id:da400447823219914] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (177,110.27) .. controls (179.02,110.82) and (196.61,117.17) .. (222.7,126.7) .. controls (248.78,136.23) and (256.48,139.07) .. (276.35,146.38) .. controls (296.22,153.68) and (472.32,221.3) .. (481,225) ;
+%Shape: Circle [id:dp8184437802307525] 
+\draw  [color={rgb, 255:red, 67; green, 100; blue, 34 }  ,draw opacity=1 ][fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ][line width=2.25]  (333.8,132.68) .. controls (333.78,131.88) and (334.41,131.21) .. (335.21,131.19) .. controls (336.01,131.16) and (336.68,131.79) .. (336.7,132.59) .. controls (336.73,133.39) and (336.1,134.06) .. (335.3,134.09) .. controls (334.5,134.11) and (333.83,133.48) .. (333.8,132.68) -- cycle ;
+%Straight Lines [id:da9972377160094408] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (334.6,170.55) -- (335,290.15) ;
+%Straight Lines [id:da7424325425516327] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (240.5,103.75) -- (241,289.97) ;
+%Curve Lines [id:da05506549256143756] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (170.14,73.16) .. controls (172.16,73.71) and (189.75,80.06) .. (215.83,89.59) .. controls (241.92,99.12) and (249.61,101.96) .. (269.49,109.27) .. controls (276.52,111.85) and (305.23,122.49) .. (339.75,135.3) .. controls (402.71,158.68) and (485.03,189.32) .. (490.64,191.71) ;
+%Straight Lines [id:da7135867906718631] 
+\draw    (335.6,164.94) -- (335.04,138.25) ;
+\draw [shift={(335,136.25)}, rotate = 448.8] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (323.17,134.76) .. controls (320,130.44) and (316.39,127.11) .. (312.36,124.76) .. controls (316.82,126.13) and (321.72,126.51) .. (327.04,125.92) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (299.97,126.06) .. controls (296.8,121.75) and (293.2,118.41) .. (289.16,116.06) .. controls (293.62,117.43) and (298.52,117.82) .. (303.84,117.22) ;
+\draw  [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (278.64,118.48) .. controls (275.46,114.17) and (271.86,110.83) .. (267.82,108.48) .. controls (272.29,109.85) and (277.18,110.24) .. (282.51,109.64) ;
+%Straight Lines [id:da3126223243550976] 
+\draw [color={rgb, 255:red, 189; green, 16; blue, 224 }  ,draw opacity=1 ]   (322,302.32) -- (261,301.77) ;
+\draw [shift={(259,301.75)}, rotate = 360.52] [color={rgb, 255:red, 189; green, 16; blue, 224 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5430443719171627] 
+\draw [line width=1.5]    (167.33,99.74) -- (481,99.74) ;
+
+% Text Node
+\draw (145.67,23.74) node [anchor=north west][inner sep=0.75pt]   [align=left] {q};
+% Text Node
+\draw (508.67,278.07) node [anchor=north west][inner sep=0.75pt]   [align=left] {K};
+% Text Node
+\draw (486,155.74) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{K}_{0} \ =0$};
+% Text Node
+\draw (144.47,159.34) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$1$};
+% Text Node
+\draw (435,260.24) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{q} =0$};
+% Text Node
+\draw (335.42,116.95) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize,color={rgb, 255:red, 10; green, 12; blue, 241 }  ,opacity=1 ] [align=left] {A};
+% Text Node
+\draw (123.75,90.12) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$1+\gamma $};
+% Text Node
+\draw (231.54,293.93) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$K_{1}$};
+% Text Node
+\draw (328.82,294) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$K_{0}$};
+% Text Node
+\draw (335.3,150.59) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$E_{0}$};
+% Text Node
+\draw (236.83,77.9) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$E_{1}$};
+% Text Node
+\draw (485,86.74) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize]  {$\dot{K}_{1} \ =0$};
+
+
+\end{tikzpicture}
+
+\caption{Diagrama Inciso c)} \label{fig:D5}
+\end{figure}
+
+
+
+En el diagrama de fase se observa el desplazamiento hacía arriba de la curva $\dot{K}=0$. Se nombrará a la curva nueva como $\dot{K_1}=0$ y a la curva anterior como $\dot{K_0}=0$ con el propósito de diferenciarlas. El mecanismo de transmisión que se aprecia en el diagrama de fase anterior es el siguiente.
+
+Nuevamente, el análisis inicia en un punto de equilibrio de largo plazo inicial que llamaremos $E_0$, en el cual existe un nivel de capital $K_0$. Una vez aplicado el impuesto, este reducirá la inversión, lo que significa que los beneficios para las firmas tenderán a ser más altas, y esto conlleva a que el capital existente sea más valioso ($q$ se incrementa). Debido a esto, la economía se moverá del punto inicial $E_0$ el punto $A$, en el cual se refleja el incremento de $q$, y la economía se ubicará en una nueva senda de punto de silla de equilibrio en dicho punto $A$. 
+
+Posteriormente, la economía asciende por la nueva senda de punto de silla hasta llegar al nuevo punto de equilibrio de largo plazo $E_1$. En este punto final, el capital es permanentemente menor y el valor de mercado del capital antes de impuestos es igual a es igual a $1+\gamma$. Sin embargo, es importante considerar que el valor de mercado después de impuestos es nuevamente igual a $1$. 
+
+
+
+
+
+
+
+
+
+
