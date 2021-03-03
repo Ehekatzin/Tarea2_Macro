@@ -35,10 +35,16 @@ options(knitr.duplicate.label = "allow")
 
 # Ejercicios de inversión - Romer
 
+```{r child = 'P91_.Rmd'}
+```
 
+```{r child = 'Problema 9_7 Romer.Rmd'}
+```
 
 # Ejercicios prácticos
 
+```{r child = 'problema_2_.Rmd'}
+```
 
 
 \newpage
