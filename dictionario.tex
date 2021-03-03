@@ -1,0 +1,494 @@
+
+%----------------------------------------------------------------------------------------
+%	PAQUETES Y CONFIGURACION
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,a4paper]{article} % 10pt font size, A4 paper and two-sided margins
+
+\usepackage[top=3.5cm,bottom=3.5cm,left=3.7cm,right=4.7cm,columnsep=30pt]{geometry} % Document margins and spacings
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+%\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[spanish]{babel}
+\usepackage{sectsty}
+
+\usepackage{palatino} % Use the Palatino font
+
+\usepackage{microtype} % Improves spacing
+
+\usepackage{multicol} % Required for splitting text into multiple columns
+
+\usepackage[bf,sf,center]{titlesec} % Required for modifying section titles - bold, sans-serif, centered
+
+\usepackage{fancyhdr} % Required for modifying headers and footers
+\fancyhead[L]{\textsf{\rightmark}} % Top left header
+\fancyhead[R]{\textsf{\leftmark}} % Top right header
+\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
+\fancyfoot[C]{\textbf{\textsf{\thepage}}} % Bottom center footer
+\renewcommand{\footrulewidth}{1.4pt} % Rule under the footer
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+
+% \newcommand{\entry}[4]{\textbf{#1}\markboth{#1}{#1}\ {(#2)}\ \textit{#3}\ $\bullet$\ {#4}}
+
+\newcommand{\entry}[2]{\textbf{#1} \markboth{#1}{#1}\ $\bullet$\ {#2}} % Defines the command to print each word on the page, \markboth{}{} prints the first word on the page in the top left header and the last word in the top right
+
+% Permite cambios a la tabla de contenidos, como añadir serie de puntos de separación:
+\usepackage{tocloft}
+
+% Definir y seleccionar colores diversos:
+\usepackage[dvipsnames]{xcolor}
+
+% Cambios de formato de página, como márgenes reducidos o ampliados para una sección específica en el ambiente {adjustwidth}:
+\usepackage{changepage}
+
+% Añade puntos de relleno en el índice "Contenido":
+\renewcommand{\cftsecleader}{\dotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+
+% Eliminar numeración de secciones en tabla de contenido:
+\setcounter{secnumdepth}{0}
+
+
+\begin{document}
+
+\sectionfont{\fontsize{21}{15}\selectfont}
+
+\title{ Diccionario de Economía}
+\author{Maestría en Economía del Colmex, Macro II \\ Alumnos de Enero-Mayo de 2021}
+\date{Enero-Mayo de 2021}
+
+\maketitle
+
+% Color para línea horizontal:
+\definecolor{equipo3}{rgb}{0.33, 0.41, 0.47}
+
+% % % % Inicia tabla de contenidos % % % % 
+\begin{center}
+\begin{adjustwidth}{1in}{1in}
+{\color{equipo3} \rule{\linewidth}{0.5mm} }
+\vspace{-8mm}
+\renewcommand*\contentsname{Índice por letra inicial}
+\renewcommand{\cftdot}{}
+\tableofcontents
+{\color{equipo3} \rule{\linewidth}{0.5mm} }
+\end{adjustwidth}
+\end{center}
+% % % % Termina tabla de contenidos % % % % 
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	SECTION A
+%----------------------------------------------------------------------------------------
+
+\section{A}
+
+\begin{multicols}{2}
+
+\entry{Acción}{en el mercado financiero es un título emitido por una Sociedad Anónima o Sociedad comanditaria por acciones que representa el valor de una de las fracciones iguales en que se divide su capital social. Las acciones, generalmente, confieren a su titular (llamado accionista) derechos, como el de voto en la junta de accionistas de la entidad y económicos, como participar en los beneficios de la empresa.}
+
+\entry{Acelerador Financiero}{Se refiere a la propiedad de las imperfecciones en el mercado financiero de amplificar los efectos de choques económicos exógenos.}
+
+\entry{Acertijo de la Prima de Riesgo}{Asumiendo una función de utilidad cuadrática, la prima de riesgo establece que la diferencia esperada entre dos retornos risgosos es igual a la aversión relativa al riesgo por la covarianza entre el crecimiento del consumo y la diferencia de los retornos de los activos. No obstante, estudios empíricos muestran que esta igualdad sólo se cumpliría con una aversión relativa al riesgo inverosímilmente alta. El incumplimiento del la prima constituye un acertijo que puede indicar el uso de una érronea forma funcional o de una mala medición de la covarianza.}
+
+\entry{Agente representativo de la economía}{Economía en la que sólo hay un agente que produce, consume y ahorra, que es equivalente a una donde hay una multitud de agentes, pero todos son iguales. Ie. No hay heterogeneidad.}
+
+\entry{Ahorro Precautorio}{Es el efecto de una utilidad marginal convexa y consiste en el ahorro adicional que realizan los agentes como precaución por las posibles variaciones del ingreso futuro. Esto se debe a que, dado que la utilidad marginal es convexa, el valor esperado de la utilidad marginal del próximo período superará a la utilidad marginal del valor esperado del consumo del próximo período. Además, si se toma la hipótesis del paseo aleatorio, según la cual la utilidad marginal del período actual es igual a la utilidad marginal del valor esperado del consumo del próximo período, se concluirá que el valor esperado de la utilidad marginal del próximo período es mayor a la utilidad marginal del consumo presente. Por tanto, para satisfacer la ecuación de Euler de optimización, se debe aumentar el ahorro reduciendo el consumo presente, lo que aumentará la utilidad marginal hasta que alcance al valor esperado de la utilidad marginal futura.} 
+
+\entry{Arbitrajista}{Tipo de inversor que intenta beneficiarse de las ineficiencias del mercado. Estas ineficiencias pueden relacionarse con cualquier aspecto de los mercados, ya sean precios, dividendos o regulaciones. La forma más común de arbitraje es el precio.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION B
+%----------------------------------------------------------------------------------------
+
+\section{B}
+
+\begin{multicols}{2}
+
+\entry{Balanza de pagos}{es un registro de todas las transacciones monetarias producidas entre un país y el resto del mundo en un determinado periodo. Estas transacciones pueden incluir pagos por las exportaciones e importaciones del país de bienes, servicios, capital financiero y transferencias financieras.}
+
+\entry{Bien}{De acuerdo con Aristóteles, se llama bienes a los medios que sirven para la vida y el bienestar de las personas, en otras palabras, que entran en una relación causal con las satisfacciones de deseos humanos. En cambio, Carl Menegr sostuvo que, para que algo alcance la cualidad de bien, se deben cumplir las siguientes cuatro condiciones: 1. La existencia de una necesidad humana. 2. El objeto debe tener cualidades que le permitan mantener una conexión causal con la satisfacción de dicha necesidad. 3. Conocimiento por parte del individuo de esta relación causal. 4. El objeto debe ser asequible de tal modo que pueda ser utilizado de hecho para la satisfacción de la necesidad. Cabe destacar que tanto Menger como Aristóteles aceptaron la existencia de lo que ellos consideraron bienes imaginarios, que son aquellos que no guardan ninguna relación causal con la satisfacción de alguna necesidad pero los individuos creen lo contrario.} 
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION C
+%----------------------------------------------------------------------------------------
+
+\section{C}
+
+\begin{multicols}{2}
+
+\entry{Calibración}{Es el proceso mediante el cual, basado en la teoría, se eligen los parámetros de un modelo que se utilizará para proporcionar una respuesta cuantitativa a una pregunta específica.} 
+
+\entry{Capital}{Es una forma social e histórica de la existencia del valor, en la cual éste se valoriza a partir de la explotación del trabajo ajeno asalariado, es decir, mediante la apropiación de un trabajo ajeno no remunerado.} 
+
+\entry{Capitalización bursátil}{o capitalización de mercado, es una medida de una empresa o su dimensión económica, y es igual al precio por acción en un momento dado multiplicado por el número de acciones en circulación de una empresa de capital abierto, e indica el patrimonio disponible para la compra y venta activa en la bolsa.} 
+
+\entry{Choques de ganancias idiosincrásicos no asegurables}{Choques al ingreso individual, que, debido típicamente a la posiblidad de "riesgo moral", no son asegurables, es decir, no es posible que los agentes compren un seguro que los proteja de ellos.}
+
+\entry{Choques tecnológicos agregados}{Choques al nivel de la productividad de la economia, que son impredecibles, aunque de distribución conocida.}
+
+\entry{Composición Orgánica del Capital}{Es la razón entre el valor del capital constante y el del capital variable, es decir, entre el valor de los medios de producción y el de la fuerza de trabajo. La composición orgánica puede cambiar tanto por variaciones en el valor del capital constante o variable, como por cambios en la composición técnica del capital que requieran una mayor cantidad de medios de producción en relación con la fuerza de trabajo o viceversa. Debido al continuo progreso técnico del capitalismo y a la progresiva acumulación del capital, Marx consideró que bajo el capitalismo la composición orgánica tiende a aumentar de manera indefinida.} 
+
+\entry{Condición de Transversalidad}{Es una condición necesaria para asegurar que las $q$ de Tobin igualen la cantidad con que una unidad marginal de capital contribuye a la función objetivo de la firma. Es, a su vez, una condición necesaria para que la empresa pueda maximizar beneficios, y dicha condición consiste en igualar a cero el límite cuando el tiempo final tiende a infinito del valor presente de la $q$ del período de tiempo} final. 
+
+\entry{Contrato}{Representación jurídica de una disposición natural del hombre a consensuar con su igual distintos pactos que representen beneficios mutuos. Establece pautas reguladoras de conducta para los agentes económicos, reduciendo los riesgos de las actividades.}
+
+\entry{Costos de Agencia}{Son los costos en los que incurre un agente económico cuando su resultado económico depende de las acciones de otro actor económico, sobre las cuales carece de información perfecta, de modo que cuenta con menos información sobre este asunto que la que posee este segundo actor de cuyas acciones depende. De este modo, hay asimetría de información. Estos costos pueden consistir, por ejemplo, en el esfuerzo gastado por el primer agente para monitorear las acciones del segundo agente.} 
+
+\entry{Costos Internos de Ajueste del Capital}{Representa los costos de instalar nuevo capital y de capacitar a los trabajadores para operar las nuevas máquinas.} 
+
+\entry{Crisis}{Marx definió a las crisis como soluciones violentas y puramente momentáneas a las contradicciones existentes dentro de un modo de producción e involucran un conflicto entre las fuerzas productivas, las relaciones de producción y la superestructura ideológica vigentes.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION D
+%----------------------------------------------------------------------------------------
+
+\section{D}
+
+\begin{multicols}{2}
+
+\entry{Déficit fiscal}{Situación en la cual una administración pública reporta gastos gastos fiscales superiores a los ingresos fiscales en un periodo determinado de tiempo.} 
+
+\entry{Deflación}{es el fenómeno contrario a la Inflación y consiste en la caída generalizada y prolongada (como mínimo, dos semestres según el FMI) del nivel de los precios de bienes y servicios.}
+
+\entry{Deflactor del PIB}{Índice de precios que tiene como función calcular la variación de los precios en una economía por medio del Producto Interno Bruto. Se calcula en cada periodo de tiempo realizando la división entre el PIB nominal y el PIB real.} 
+
+\entry{Depósito a la vista}{Depósito bancario que permite al depositante retirar el dinero en cualquier momento y sin preaviso, por contraposición al depósito a plazo. Suele utilizarse como cuenta central para operaciones bancarias del día a día, como ingresos, pagos, domiciliaciones de recibos, transferencias o retiradas de efectivo en cajeros automáticos, entre otras.}
+
+\entry{Depósito bancario}{Forma de ahorro en la cual una entidad financiera custodia el dinero de un cliente recompensandolo mediante una remuneración de acuerdo a la cantidad y al plazo determinado.} 
+
+\entry{Desempleo ciclíco}{Desempleo provocado por las fluctuaciones de la actividad económica de una economía en cuestión, es decir, es aquel desempleo que está en función del ciclo económico de un país o un territorio en un momento determinado.} 
+
+\entry{Discriminación de precios}{Práctica mediante la cual se cobran distintos precios a diferentes consumidores a cambio de un mismo bien o servicio, a pesar que el costo de proveerlo y/o producirlo es el mismo.} 
+
+\entry{Dolarización}{Proceso mediante el cual un país adopta de forma oficial al dólar (moneda de Estados Unidos) como su moneda de curso legal.} 
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION E
+%----------------------------------------------------------------------------------------
+
+\section{E}
+
+\begin{multicols}{2}
+
+\entry{Economía feminista}{Es el campo que incluye estudios de los roles de género en la economía desde una perspectiva liberadora y trabajo crítico dirigido a parcialidades en el contenido y metodología de la disciplina económica. Desafía análisis económicos que tratan a la mujer como un agente invisible o que sirven para reforzar situaciones de opresión hacia la mujer y genera investigación innovadora diseñada para superar estas fallas. La economía feminista resalta la manera en que arbitrariedades subjetivas que conciernen a temas y métodos aceptables han comprometido la fiabilidad y el enfoque objetivo de la investigación económica y explora alternativas más adecuadas.}
+
+\entry{Espiritus animales}{es un término acuñado por el afamado economista británico John Maynard Keynes. Este trata de describir la relacion entre los instintos, inclinaciones y emociones que aparentemente influyen y guían el comportamiento humano, y la economía.}
+
+\entry{Estanflación}{Es una situación en la que la tasa de inflación es alta, la tasa de crecimiento económico se desacelera y el desempleo se mantiene constantemente alto. Presenta un dilema para la política económica, ya que las acciones destinadas a reducir la inflación pueden exacerbar el desempleo.}
+
+\entry{Externalidad de la demanda agregada}{Un mecanismo tal que aumentos en la demanda agregada, incrementan la productividad de la economía.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION F
+%----------------------------------------------------------------------------------------
+
+\section{F}
+
+\begin{multicols}{2}
+
+\entry{Fuerza de trabajo}{Es el conjunto de facultades musculares e intelectuales que existen en el cuerpo de las personas y que sirve para producir objetos útiles. La fuerza de trabajo es la fuente de todo valor y bajo las sociedades capitalistas constituye una mercancía más que, sin embargo, conserva la cualidad especial de crear valor mientras es consumida. Las dos condiciones necesarias y suficientes para que la fuerza de trabajo se convierta en mercancía son: 1. La libertad de los individuos de disponer y de vender su fuerza de trabajo, es decir, que no sean esclavos y sean propietarios de sí mismos. 2. Que el individuo carezca de la propiedad de medios de producción indispensables para poder emplear su propia fuerza de trabajo para crear valor, es decir, la incapacidad del individuo para conducir a su fuerza de trabajo de la potencia al acto. Sobre esto, Marx es claro en diferenciar entre fuerza de trabajo y trabajo. Este último constituye la materialización de la potencia ligada a la fuerza de trabajo.De hecho, la fuerza de trabajo sólo puede realizarse en acto mediante su exteriorización en el trabajo humano, si bien, es la fuerza de trabajo y no el trabajo el que se vende como mercancía.} 
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION G
+%----------------------------------------------------------------------------------------
+
+\section{G}
+
+\begin{multicols}{2}
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION H
+%----------------------------------------------------------------------------------------
+
+\section{H}
+
+\begin{multicols}{2}
+
+\entry{Heterogeneidad del hogar}{Diferencias entre los hogares, ya sean ex-ante (carcterísticas distintas), o ex-post (situaciones distintas).}
+
+\entry{Hipótesis del Paseo Aleatorio}{Propuesta por Robert Hall, argumenta que el valor esperado del consumo en un período es igual al consumo del período anterior, por lo que el consumo de un período es igual al consumo del período anterior más un término estocástico de error con media cero. Esta hipótesis implica que las variaciones en el consumo son impredecibles y, en particular, que no pueden usarse variaciones predecibles del ingreso para predecir el consumo.} 
+
+\entry{Hipótesis Ingreso Permanente}{(HIP) Propuesto por Milton Friedman, plantea que el consumo de las personas es determinado, primordialmente, por su ingreso permanente, el cual es igual a la suma del ingreso que recibirán a lo largo de toda su vida, dividida entre el número de períodos que le quedan al agente de vida. De esta manera los cambios en el ingreso transitorio sólo afectan al consumo en la medida en que afectan al ingreso permanente.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION I
+%----------------------------------------------------------------------------------------
+
+\section{I}
+
+\begin{multicols}{2}
+
+\entry{Inflación}{es el aumento generalizado y sostenido de los precios de los bienes y servicios existentes en el mercado durante un período de tiempo, generalmente un año.}
+
+\entry{Información Asimétrica}{Se presenta cuando un participante en una transacción económica tiene más información relevante para dicha transacción que el otro participante.}
+
+\entry{Institución financiera}{Entidad que interviene en los mercados financieros y cuya actividad consiste en captar o intermediar fondos del público e invertirlos en activos como títulos valores, depósitos bancarios, etc.}
+
+\entry{Intermediario financiero}{Instituciones legalmente constituidas que facilitan las transacciones en el mercado financiero.}
+
+\entry{Inversión}{gasto que los agentes de una economía hacen en comprar e instalar capital con el objetivo de incrementarlo. Dicho de otra manera, consiste en renunciar a un consumo actual y cierto, a cambio de obtener unos beneficios futuros y distribuidos en el tiempo.}
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION J
+%----------------------------------------------------------------------------------------
+
+\section{J}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION K
+%----------------------------------------------------------------------------------------
+
+\section{K}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION L
+%----------------------------------------------------------------------------------------
+
+\section{L}
+
+\begin{multicols}{2}
+
+\entry{Ley Psicológica Funadamental}{De acuerdo con Keynes, podemos establecer que las personas están dispuestas, por regla general y en promedio, a aumentar su consumo a medida que su ingreso crece, aunque no tanto como el crecimiento de su ingreso.De esto se sigue que la propensión marginal a consumir se ubica en un intervalo abierto que va del cero al uno.} 
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION M
+%----------------------------------------------------------------------------------------
+
+\section{M}
+
+\begin{multicols}{2}
+
+\entry{Macroeconomía}{Estudio del comportamiento de los grandes agregados económicos como: el empleo global, la renta nacional, la inversión, el consumo, los precios, los salarios, y los costos, entre otros. El propósito de la teoría macroeconómica, por lo general, consiste en estudiar sistemáticamente las causas que determinan los niveles de la renta nacional y otros agregados, así como la racionalización de los recursos.} 
+
+\entry{Mecanismos de amplificación de choque}{Mecanísmos que agrandan el efecto de un choque.}
+
+\entry{Mecanismos de propagación del impacto}{Mecanismos que transmiten un choque de un mercado a otro, o de un periodo a otro.}
+
+\entry{Mercados financieros}{Los mercados financieros se pueden definir como los lugares donde se realizan las transacciones de instrumentos financieros. Los mercados son el mecanismo o lugar a través del cual se produce el intercambio de activos financieros y donde se determina su precio.}
+
+\entry{Mercancía}{Para el marxismo, la mercancía es , en primer lugar, un objeto útil, es decir, que da satisfacción a necesidades humanas, sin importar si éstas brotan del estómago o de la fantasía. En segundo lugar, estos objetos, en vez de ser consumidos por sus productores, son destinados al cambio y, por ello mismo, la mercancía constituye la forma elemental de la riqueza de las sociedades en que impera el régimen de producción capitalista.} 
+
+\entry{Modelo de ciclo económico real canónico}{Modelo dinámico, con empresas, dueñas de capital, que contratan empleados, que a su vez son dueños de las empresas, consumen y tienen desutilidad por trabajar. En el modelo hay choques de productividad.}
+
+\entry{Momentos}{Literalmente quiere decir el valor esperado (el promedio en los datos) de una función de una variable observable, es decir E[f(x)]. En general se usa para decir un estadístico empírico.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION N
+%----------------------------------------------------------------------------------------
+
+\section{N}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION O
+%----------------------------------------------------------------------------------------
+
+\section{O}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION P
+%----------------------------------------------------------------------------------------
+
+\section{P}
+
+\begin{multicols}{2}
+
+\entry{Pánico bancario}{Es un fenómeno social que ocurre cuando una gran cantidad de acreedores exigen  a un banco la devolución de sus fondos de tal modo que el banco no cuenta con la liquidez suficiente para satisfacer tales demandas a cabalidad. Esto es consecuencia de que las instituciones financieras realizan inversiones de largo plazo pero permiten a sus acreedores y depositantes acceder a sus fondos antes de que sus inversiones maduren.} 
+
+\entry{Pledgeable}{Una promesa o acuerdo formal o solemne, especialmente para hacer o abstenerse de hacer algo. Colateral para el pago de una deuda o el cumplimiento de una obligación}
+
+\entry{Plusvalía}{Es el valor producido por el trabajador que excede al valor de su fuerza de trabajo y que es apropiado por el capitalista. Representa el valor social del tiempo de trabajo no pagado al trabajador.}
+
+\entry{Precio de Producción}{Es el precio que permite obtener a los productores, con la venta de sus mercancías, la tasa media de ganancia.} 
+
+\entry{Precio sombra}{es un valor monetario asignado a costos actualmente desconocidos o difíciles de calcular en ausencia de precios de mercado correctos. Se basa en el principio de la disposición a pagar: la medida más precisa del valor de un bien o servicio es lo que las personas están dispuestas a renunciar para obtenerlo. De manera menos formal, un precio sombra se puede considerar como el costo de las decisiones tomadas al margen sin tener en cuenta el costo total.}
+
+\entry{Problemas de Agencia}{Problema de información asimétrica en la que un agente depende de la elección de otro, el qual puede tener incentivos a no seguir una conducta optimizadora para el primero.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION Q
+%----------------------------------------------------------------------------------------
+
+\section{Q}
+
+\begin{multicols}{2}
+
+\entry{$q$ de Tobin}{Es la razón entre el valor de mercado del capital y su costo de reemplazo. Si se cumple la condición de transversalidad, es también igual al valor presente del ingreso marginal futuro de una unidad marginal de capital.} 
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION R
+%----------------------------------------------------------------------------------------
+
+\section{R}
+
+\begin{multicols}{2}
+
+\entry{Recesión}{es una disminución o pérdida generalizada de la actividad económica de un país o región. Esta reducción de la actividad económica se mide a través de la bajada, en tasa interanual, del Producto Interior Bruto (PIB) real, y debe producirse de manera generalizada durante un período de tiempo significativo.}
+
+\entry{Riesgo de impago}{También conocido como riesgo de default financiero o riesgo de suspensión de pagos, surge cuando una persona u organización no puede afrontar el pago de una deuda cuando llega el vencimiento. Se produce cuando un deudor no puede cumplir con la obligación legal de pagar su deuda.}
+
+\entry{Riesgo (Finanzas)}{Probabilidad de ocurrencia de un evento que tenga consecuencias financieras negativas para una organización. Riesgo de que una empresa no pueda cumplir con sus obligaciones de pagar sus deudas; cuanta más deuda tenga una empresa, mayor será el riesgo financiero potencial.}
+
+\entry{Riesgo Moral}{Surge cuando una de las partes que firman un contrato cambia su comportamiento en respuesta a ese contrato y, de este modo, transmite los costos de ese cambio de comportamiento a la otra parte.}
+
+\entry{Riqueza}{De acuerdo con Thomas Malthus, riqueza son todos aquellos objetos económicos materiales que son necesarios, útiles o agradables para las personas, de modo que excluye a muchos bienes inmateriales que hoy serían considerados como riqueza, entre ellos, el capital humano y la propiedad intelectual. Asimismo, sólo reconoce como riqueza a bienes económicos, es decir, bienes escasos excluibles, con lo que Malthus excluye al aire, a la luz y a otros más de su definición. En concordancia con esta definición, Stuart Mill define a la riqueza como el conjunto de cosas útiles o agradables que poseen valor de cambio, de tal manera que igualmente le niega el título de riqueza a los objetos que pueden obtenerse en la cantidad deseada sin trabajo o sacrificio alguno. Además, Mill ya no establece la restricción de que sólo los bienes materiales pueden constituir riqueza.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION S
+%----------------------------------------------------------------------------------------
+
+\section{S}
+
+\begin{multicols}{2}
+
+\entry{Selección Adversa}{Situación en la cual se produce información asimétrica en torno de bienes o consumidores de alta calidad, que tienen que salir de ciertas transacciones porque no pueden demostrar su calidad.}
+
+\entry{Supuesto exógeno}{Situación de los agentes que no es resultado de su reacción a las circunstancias, sino que se asume como dada. Por ejemplo: si el modelo supone que hay agentes sin ahorros, estos son pobres por un supuesto exógeno. En cambio si los agentes pueden ahorrar, pero por las circunstancias a las que los expone el modelo no tienen ahorros, entonces son pobres pero su situación de pobreza se deriva endógeneamente en el modelo.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION T
+%----------------------------------------------------------------------------------------
+
+\section{T}
+
+\begin{multicols}{2}
+
+\entry{Tasa de Interés}{Este concepto ha sido definido de diferentes formas por distintas corrientes del pensamiento económico y por distintos autores. Senior la definía como la recompensa por la abstinencia, es decir, como la gratificación de la abstención del consumo presente y Alfred Marshall lo hizo de manera similar, afirmando que se trataba de la recompensa por esperar cierto tiempo hasta recuperar lo prestado. De acuerdo a estas definiciones, la tasa de interés es el precio que equilibra la oferta de ahorros con su demanda. Por otra parte, Marx lo definió como el precio del dinero en tanto capital, es decir, en tanto valor que se valoriza y, por consiguiente, representa la ganancia por la simple posesión del capital. Asimismo, en constraste con todas las definiciones anteriores, para Keynes la tasa de interés constituye la recompensa por privarse de liquidez durante un período determinado y, en consecuencia, es el precio que equilibra el deseo de conservar la riqueza em forma líquida con la cantidad disponible de liquidez.} 
+
+\entry{Teoría Keynesiana del Consumo}{Propuesta por Keynes, sostiene que el principal determinante del consumo es el ingreso actual y que la proporción destinada al consumo es decreciente con respecto al nvel absoluto del ingreso. Además, Keynes reconoce que existen otros factores objetivos que afectan al consumo, pero que tienen menor importancia, y destaca seis: 1)Cambios en los salarios; 2)cambios en la diferencia entre ingreso e ingreso neto; 3) cambios imprevistos en el valor de los bienes de capital; 4)Cambios en la tasa de interés y en el poder adquisitivo del dinero; 5)cambios en la política fiscal; y 6) cambios en el ingreso futuro esperado con relación al ingreso actual. Este último punto deja ver que Keynes ya tomaba en cuenta elementos que después constituirían la Hipótesis del ingreso Permanente, no obstante, Keynes consideraba que, aunque este punto era importante en la determinación del consumo de los individuos, a nivel agregado sería irrelevante.} 
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION U
+%----------------------------------------------------------------------------------------
+
+\section{U}
+
+\begin{multicols}{2}
+
+\entry{Utilidad}{De acuerdo a Carl Menger, la utilidad es la capacidad que tiene un objeto de servir para satisfacer necesidades humanas y, por ende, es un presupuesto de la cualidad de los bienes. Incluso los bienes no económicos, es decir, aquellos que no son escasos, pueden ser útiles. La economía neoclásica, posteriormente, ajustaría la definición, recalcando que utilidad es la capacidad de los objetos para satisfacer deseos humanos, de modo que el concepto no presupone elementos objetivos, sino que es meramente subjetivo. De este modo, no tiene sentido el concepto aristotélico de bienes imaginarios, que también recoge Menger, ya que, aun en el caso de que un individuo crea falsamente que cierto objeto puede satisfacer una necesidad suya, como, por ejemplo, procurarle salud, dicho objeto le procura utilidad al individuo.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION V
+%----------------------------------------------------------------------------------------
+
+\section{V}
+
+\begin{multicols}{2}
+
+\entry{Valores gubernamentales}{Títulos de crédito emitidos por el Gobierno Federal en el mercado de dinero con la doble finalidad de allegarse recursos y regular la oferta de circulante. Son títulos de crédito que se colocan en una oferta primaria al público ahorrador. Se caracterizan por su liquidez en el mercado secundario. Los hay de descuento y los que se colocan a la par, sobre o bajo par. Son títulos al portador por los cuales el Gobierno Federal se obliga a pagar una suma fija de dinero en fecha determinada. Son emitidos por conducto de la SHCP y el Banco de México que es el agente financiero encargado de su colocación y redención. Los valores gubernamentales pueden considerarse como un instrumento de política monetaria para el control de la liquidez del mercado financiero a través de su compraventa (operaciones de mercado abierto). Los diferentes tipos de valor que se originan en el proceso de compra-venta son: valor nominal, valor de colocación y valor de mercado.}
+
+\entry{Variable instrumental}{es una tercera variable, Z, que se usa en el análisis de regresión cuando tiene variables endógenas, variables que están influenciadas por otras variables del modelo. En otras palabras, se usa para tener en cuenta el comportamiento inesperado entre variables. El uso de una variable instrumental para identificar la correlación oculta (no observada) permite ver la verdadera correlación entre la variable explicativa y la variable de respuesta, Y.}
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION W
+%----------------------------------------------------------------------------------------
+
+\section{W}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION X
+%----------------------------------------------------------------------------------------
+
+\section{X}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION Y
+%----------------------------------------------------------------------------------------
+
+\section{Y}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+%----------------------------------------------------------------------------------------
+%	SECTION Z
+%----------------------------------------------------------------------------------------
+
+\section{Z}
+
+\begin{multicols}{2}
+
+
+
+\end{multicols}
+
+%------------------------------------------------
+\end{document}
