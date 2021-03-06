@@ -38,6 +38,9 @@ options(knitr.duplicate.label = "allow")
 ```{r child = 'P91_.Rmd'}
 ```
 
+```{r child = 'Romer_9_4.Rmd'}
+```
+
 ```{r child = 'Problema 9_7 Romer.Rmd'}
 ```
 
