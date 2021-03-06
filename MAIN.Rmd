@@ -56,8 +56,10 @@ options(knitr.duplicate.label = "allow")
 
 \newpage
 
-# Referencias
 
 
 \listoffigures
 \listoftables
+
+# Referencias
+
