@@ -89,9 +89,9 @@ estimar su efecto por si sólas.
 ### Inciso a)
 
 ```{r include=FALSE}
-Datos <- read_excel("C:/Users/germa/OneDrive/Escritorio/Segundo Semestre/Macro 2/Tarea 2/datos.xlsx")
+Datos <- read_excel("datos.xlsx")
 
-base_master <- read_excel("C:/Users/germa/OneDrive/Escritorio/Segundo Semestre/Macro 2/Tarea 2/base_inciso e_fred.xlsx")
+base_master <- read_excel("base_inciso e_fred.xlsx")
 
 ```
 Las series se obtuvieron del [Banco de Información Estadística (BIE)](https://www.inegi.org.mx/sistemas/bie/) del INEGI. En el caso del Producto Interno Bruto ("Producto Agregado") la serie se obtuvo de los indicadores económicos de coyuntura, esta serie se encuentra  en millones de pesos constantes a precios de 2013 y desestacionalizada. Además, es posible consultar la serie completa desde el primer trimestre de 1980 hasta el tercer trimestre de 2020, por lo cual no se requirió realizar manipulaciones sobre esta serie.
@@ -154,7 +154,7 @@ Cabe destacar que, si bien nuestra intención era analizar el comportamiento de 
 
 
 ```{r include=FALSE}
-base_ifb <- read_excel("C:/Users/germa/OneDrive/Escritorio/Segundo Semestre/Macro 2/Tarea 2/base_ifb.xlsx")
+base_ifb <- read_excel("base_ifb.xlsx")
 ```
 
 
@@ -272,9 +272,9 @@ Para la construcción de la serie de interés real se tomaron la serie mensual d
 A continuación se expone el comportamiento de las dos series de tipo de interés real que se estimaron por medio de los siguientes dos gráficos. 
 
 ```{r}
-base_e_tiie <- read_excel("C:/Users/germa/OneDrive/Escritorio/Segundo Semestre/Macro 2/Tarea 2/base_inciso e_tiie.xlsx")
+base_e_tiie <- read_excel("base_inciso e_tiie.xlsx")
 
-base_e_fred <- read_excel("C:/Users/germa/OneDrive/Escritorio/Segundo Semestre/Macro 2/Tarea 2/base_inciso e_fred.xlsx")
+base_e_fred <- read_excel("base_inciso e_fred.xlsx")
 ```
 
 
@@ -470,7 +470,7 @@ Por ultimo, el rezago de la variación de la inversión continua generando efect
 En esta sección, se toman parte de los modelos econometricos presentados en la sección anterior, con la diferencia de que se estima para el periodo a nivel trimestral desde 2004 hasta 2020, dado que la intención de este apartado es incorporar una variable de confianza empresarial, estimada por el INEGI desde el año 2004. De esta forma, se estiman 6 modelos diferentes, partiendo de la confianza empresarial y de su variación, con el fin de explicar el comportamiento de la variación de la Inversión. En la medida en que se avanza en los modelos se irán adicionando variables explicativas adicionales. En las siguientes dos tablas se presentan dichos resultados.
 
 ```{r}
-base_f <- read_excel("C:/Users/germa/OneDrive/Escritorio/Segundo Semestre/Macro 2/Tarea 2/base_inciso f.xlsx")
+base_f <- read_excel("base_inciso f.xlsx")
 ```
 
 ```{r}
