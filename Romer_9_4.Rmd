@@ -1,0 +1,133 @@
+---
+title: "Romer_9_4"
+author: "Ehekatzin García"
+date: "1/3/2021"
+output: pdf_document
+header-includes:
+   - \usepackage[nottoc]{tocbibind} \usepackage{graphicx} \usepackage{amsmath} \usepackage{fancyhdr} \pagestyle{fancy} \usepackage{enumitem} 
+   - \renewcommand{\listfigurename}{Lista de figuras}
+   - \renewcommand{\listtablename}{Lista de tablas}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problema 9.4
+
+\textbf{Construyendo intuición sobre la condición de transversalidad.} Considere un individuo que elige el camino de G para maximizar $\int_{t=0}^{\infty}e^{-\rho t}[-\frac{a}{2}G(t)^2]dt$, $a>0$, $\rho >0$. $G(t)$ es la cantidad de basura que el individuo genera en el tiempo $t$; por simplicidad, se permite la posibilidad de que $G$ sea negativa. La creación de basura del individuo afecta su stock de basura. En particular, el stock de basura, $T$, evoluciona de acuerdo con $T(0)=0$, $\dot{T}(t)=G(t)$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Pruebe, usando la menor cantidad de matemática posible, que la ruta de maximización de la utilidad es $G(t)=0$ para todo $t$.
+
+\item Suponga que queremos analizar este problema utilizando el método de variaciones. Suponga que $G$ es la variable de control y $T$ la variable de estado, y que $\mu$ denota la variable de costeo. ¿Cuál es el valor actual del Hamiltoniano?
+
+\item Encuentre las condiciones para la optimización, además de la condición de transversalidad. Describa los caminos de $G$ que satisfacen esas condiciones.
+
+\item ¿Cuál es la condición de transversalidad? Muestre que excluye todas las rutas que encontró en la parte c) excepto una, y que la ruta restante es la que mostró como óptima en la parte a) $G(t)=0$ para todas las t.
+
+\item Explique en una oración o dos por qué las soluciones en c) que no sean $G(t)=0$ para toda $t$ parecen maximizadoras de utilidad si no se considera la condición de transversalidad, y por qué la condición de transversalidad las descarta.
+
+\end{enumerate}
+
+
+### Solución
+
+### Inciso a)
+
+A partir de la función que el individuo quiere maximixar  en un periodo dado ($-\frac{a}{2}G(t)^2$), puede notarse que para cualquier valor $G(t) \neq 0$, la función toma valores negativos. Por lo tanto, el máximo de la función se encuentra cuando $G(t)=0$.
+
+### Inciso b)
+
+El problema de maximización del agente es:
+
+\begin{equation}
+\max \int_{t=0}^{\infty} e^{-\rho t}[-\frac{a}{2}G(t)^2] \quad \textrm{s.a} \quad \dot{T}=G(t)  \textrm{con} \quad T(0)=0
+\end{equation}
+
+Por lo que el valor real del Hamiltoliano puede escribirse como:
+
+\begin{equation}
+\mathcal{H}(G(t),T(t), \mu(t)) = [-\frac{a}{2}G(t)^2]+\mu(t)G(t)
+\end{equation}
+
+
+### Inciso c)
+
+Derivando el valor real del Hamiltoniano respecto a la variable de control $G(t)$ se obtiene:
+
+\begin{equation}
+\frac{\partial{\mathcal{H}(\cdot)}}{{\partial G(t)}}= -aG(t)+\mu(t) = 0 \Longrightarrow \mu(t)=aG(t) 
+\label{cond_1}
+\end{equation}
+
+Derivando con respecto a la variable de estado $T$, se obtiene que:
+
+\begin{equation}
+\frac{\partial{\mathcal{H}(\cdot)}}{\partial T(t)}=  0 = \rho \mu(t) - \dot{\mu}(t) \Longrightarrow \mu(t)=\frac{1}{\rho}\dot{\mu}(t)
+\label{cond_2}
+\end{equation}
+
+
+
+
+### Inciso d)
+
+La condición de transversalidad es:
+
+\begin{equation}
+\lim_{n \to \infty}e^{-\rho t} \mu(t)T=0
+\label{cond_trans}
+\end{equation}
+
+Igualando la ecuación \ref{cond_1} con la condición \ref{cond_2} se obtiene:
+
+$$aG(t) = \frac{1}{\rho}\dot{\mu}(t)$$
+\begin{equation}
+G(t)=\frac{\dot{\mu}(t)}{\rho a} = \dot{T}
+\label{eq:3}
+\end{equation}
+
+Integrando la ecuación \ref{eq:3} respecto a $t$ se obtiene:
+
+\begin{equation}
+\int G(t)dt =\int \frac{\dot{\mu}(t)}{\rho a}dt = \int \dot{T}dt \Longrightarrow \int G(t)dt = \frac{\mu(t)}{\rho a} = T
+\label{eq: 4}
+\end{equation}
+
+Sustituyendo la ecuación \ref{eq: 4} en \ref{cond_trans} se obtiene que:
+
+$$\lim_{t \to \infty}e^{-\rho t} \mu(t) \frac{\mu(t)}{\rho a}=0$$
+$$\lim_{t \to \infty}e^{-\rho t} \frac{[\mu(t)]^2}{\rho a}=0$$
+$$\lim_{t \to \infty}e^{-\rho t} \frac{[aG(t)]^2}{\rho a}=0$$
+\begin{equation}
+\lim_{t \to \infty} \frac{a}{\rho} e^{-\rho t} G(t)^2 =0
+\label{eq: final}
+\end{equation}
+
+
+Además de la \ref{eq: 4}:
+
+$$\frac{\mu(t)}{\rho a} = T \Longrightarrow \rho=\frac{\mu(t)}{aT}$$
+Y recordando que $\mu(t) = aG(t)$:
+
+\begin{equation}
+\rho = \frac{aG(t)}{aT} \Longrightarrow \rho = \frac{G(t)}{T}
+\label{eq: casi}
+\end{equation}
+
+Sustituyendo la ecuación \ref{eq: casi} en \ref{eq: final} se obtiene que:
+
+\begin{equation}
+\lim_{t \to \infty} \frac{a}{\rho} e^{-\frac{G(t)}{T} t} G(t)^2 =0
+\end{equation}
+
+Como puede verse en la ecuación \ref{eq: final} dado que $\rho$ y $a$ son estrictamente positivas, la condición de transversalidad sólo se cumple si $G(t)= 0$ para toda $t$. 
+
+### Inciso e)
+
+De la ecuación \ref{cond_2} se puede extraer que $G(t)=\frac{\mu(t)}{a}$, por lo que se podría consumir que $G(t)$ siempre tomaría valores mayores o iguales a cero. Sin embargo, esta conclusión se encuentra restringida en la condición de transversalidad, de donde se obtiene que $G(t)=0\quad \forall\quad t(0,\infty)$, lo que implica que no es óptimo mantener una cantidad positiva de basura en ningún momento del tiempo. 
+
+
+
