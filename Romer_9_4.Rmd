@@ -70,6 +70,29 @@ Derivando con respecto a la variable de estado $T$, se obtiene que:
 \end{equation}
 
 
+De la ecuación \ref{cond_2} y resolviendo la ecuación diferencial se obtiene:
+
+
+
+$$\frac{d\mu(t)}{dt} = \rho \mu(t) \Longrightarrow \frac{d\mu(t)}{\mu(t)}= \rho dt$$
+
+
+Integrando ambos lados de la ecuación y resolviendo se obtiene:
+
+
+\begin{equation}
+ln(\mu(t))= \rho t+C \Longrightarrow \mu(t)=Ae^{\rho t}
+\label{eqt}
+\end{equation}
+
+Sustituyendo la ecuación \ref{eqt} en \ref{cond_1} se obtiene que:
+
+\begin{equation}
+aG(t)= \mu(t) \Longrightarrow G(t)= Be^{\rho t}=\dot{T}\quad con\quad B= \frac{1}{a}A 
+\label{eq1}
+\end{equation}
+
+
 
 
 ### Inciso d)
@@ -77,57 +100,45 @@ Derivando con respecto a la variable de estado $T$, se obtiene que:
 La condición de transversalidad es:
 
 \begin{equation}
-\lim_{n \to \infty}e^{-\rho t} \mu(t)T=0
+\lim_{t \to \infty}e^{-\rho t} \mu(t)T=0
 \label{cond_trans}
 \end{equation}
 
-Igualando la ecuación \ref{cond_1} con la condición \ref{cond_2} se obtiene:
+De la ecuación \ref{eq1} se puede obtener lo siguente:
 
-$$aG(t) = \frac{1}{\rho}\dot{\mu}(t)$$
 \begin{equation}
-G(t)=\frac{\dot{\mu}(t)}{\rho a} = \dot{T}
-\label{eq:3}
+\frac{dT}{dt}= Be^{\rho t} \Longrightarrow T(t)=\frac{B}{\rho}e^{pt}+D
 \end{equation}
 
-Integrando la ecuación \ref{eq:3} respecto a $t$ se obtiene:
+Utilizando el hecho de que en $T(0)$ $\frac{B}{\rho}= -D$ se obtiene que:
+
 
 \begin{equation}
-\int G(t)dt =\int \frac{\dot{\mu}(t)}{\rho a}dt = \int \dot{T}dt \Longrightarrow \int G(t)dt = \frac{\mu(t)}{\rho a} = T
-\label{eq: 4}
+T(t)=\frac{B}{\rho}[e^{pt}-1]
+\label{eq2}
 \end{equation}
 
-Sustituyendo la ecuación \ref{eq: 4} en \ref{cond_trans} se obtiene que:
+Sustituyendo \ref{eq1} y \ref{eq2} en la condición de transversalidad y el 
 
-$$\lim_{t \to \infty}e^{-\rho t} \mu(t) \frac{\mu(t)}{\rho a}=0$$
-$$\lim_{t \to \infty}e^{-\rho t} \frac{[\mu(t)]^2}{\rho a}=0$$
-$$\lim_{t \to \infty}e^{-\rho t} \frac{[aG(t)]^2}{\rho a}=0$$
 \begin{equation}
-\lim_{t \to \infty} \frac{a}{\rho} e^{-\rho t} G(t)^2 =0
+\lim_{t \to \infty} e^{-\rho t}Be^{\rho t}[\frac{B}{\rho}(e^{pt}+-1)]=0
+\end{equation}
+
+Por lo que la condición se puede expresar como:
+
+\begin{equation}
+\lim_{t \to \infty} \frac{B^2}{\rho}(e^{pt}-1)=0
 \label{eq: final}
 \end{equation}
 
 
-Además de la \ref{eq: 4}:
+Como puede verse en la ecuación \ref{eq: final} dado que $\rho$ y $a$ son estrictamente positivas, la condición de transversalidad sólo se cumple si $B= 0$ para toda $t$, por lo tanto:
 
-$$\frac{\mu(t)}{\rho a} = T \Longrightarrow \rho=\frac{\mu(t)}{aT}$$
-Y recordando que $\mu(t) = aG(t)$:
-
-\begin{equation}
-\rho = \frac{aG(t)}{aT} \Longrightarrow \rho = \frac{G(t)}{T}
-\label{eq: casi}
-\end{equation}
-
-Sustituyendo la ecuación \ref{eq: casi} en \ref{eq: final} se obtiene que:
-
-\begin{equation}
-\lim_{t \to \infty} \frac{a}{\rho} e^{-\frac{G(t)}{T} t} G(t)^2 =0
-\end{equation}
-
-Como puede verse en la ecuación \ref{eq: final} dado que $\rho$ y $a$ son estrictamente positivas, la condición de transversalidad sólo se cumple si $G(t)= 0$ para toda $t$. 
+$$G(t)= Be^{\rho t}\quad con\quad B=0 \Longrightarrow  G(t)=0$$
 
 ### Inciso e)
 
-De la ecuación \ref{cond_2} se puede extraer que $G(t)=\frac{\mu(t)}{a}$, por lo que se podría consumir que $G(t)$ siempre tomaría valores mayores o iguales a cero. Sin embargo, esta conclusión se encuentra restringida en la condición de transversalidad, de donde se obtiene que $G(t)=0\quad \forall\quad t(0,\infty)$, lo que implica que no es óptimo mantener una cantidad positiva de basura en ningún momento del tiempo. 
+De las CPO del Hamiltoniano se puede concluir que G(t) debería tomar valores positivos o iguales a cero, sin embargo, ello llevaría a valores no convergentes a través del tiempo. Dicha conclusión se encuentra restringida en la condición de transversalidad, de donde se obtiene que $G(t)=0\quad \forall\quad t(0,\infty)$, lo que implica que no es óptimo mantener una cantidad positiva de basura en ningún momento del tiempo, eliminando así todas las soluciones no convergentes. 
 
 
 
