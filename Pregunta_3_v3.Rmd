@@ -25,7 +25,6 @@ Estudie la habilidad de modelo de la $q$ de Tobin para explicar las tasas de inv
 \begin{enumerate}[label=(\alph*)]
 
 \item Con el propósito de desarrollar intuición sobre la existencia y fuente de los datos corporativos, vaya al sitio de internet de algún corporativo mexicano y obtenga su reporte anual. De ahí, obtenga el valor de los activos menos los pasivos (excepto el capital) y construya el valor en libros de la empresa. Posteriormente, de dicho reporte, o del sitio de la BMV o de la BIVA, obtenga el valor de capitalización de mercado de la misma empresa y finalmente construya la variable ``Q'' como la razón de dichos valores.
-
 \item Utilice su cuenta de GitHub.com para entrar al repositorio fisionmail, Colmex\_Macro\_2\_2021 y bajar el archivo de datos que está ahí, está en formato de stata,  ``.dta''. Cree una medida de inversión y una medida de q de Tobin: inversión puede ser el gasto en capital (capx) sobre el capital (ppen), o la tasa de cambio en el capital (\%$\Delta$ ppen), o la tasa de cambio de los activos (\%$\Delta$ta). 
 
 \item Cree una medida de la q de Tobin: el  valor de mercado de la empresa sobre el valor en libros de la empresa, en donde el valor de mercado es es número de acciones por el precio de la acción.
@@ -128,106 +127,59 @@ Las medidas de inversión de WALMEX y el promedio de las empresas registradas se
 
 
 ```{r b_promedio, echo=FALSE, include=FALSE}
-
-
 # Se carga la base de datos
 data <- readRDS("DATOS_CONTABLES_mas_Precio_Acciones.rds")
-
 #Se le da un identificador único a cada empresa
-
 #install.packages("pmdplyr")
-
 library(pmdplyr)
-
 data$id <- id_variable(data$Empresa, .method = "number", .minwidth = FALSE)
-
 walmex <- data[(data$NombreCorto == "WALMART"),]
-
 #Se crea una variable temporal
-
 #Se eliminan las empresas que no se encuentren en todo el periodo
-
 rep <- data%>%count(id, wt = NULL, sort = FALSE, name = NULL)
-
 rep <- rep[(rep$n!=43),]
-
 borrar <- c(unique(rep$id, incomparables = FALSE))
-
 data <- data[!(data$id %in% borrar),] 
-
 #Se reestablecen los identificadores
-
 data$id <- id_variable(data$Empresa, .method = "number", .minwidth = FALSE)
-
-
 n <- (1:56)
-
 data$date <- NA
-
 for (i in n) {
   
 data$date[(data$id == i)] <- Fecha <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
 #data$date <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
   
 }
-
-
 #Se crea la medida de inversión
-
-
 # Medida 1
-
 x <- c(2:43)
-
 data$inv_1 <- NA
-
 for (i in n) {
   for(j in x){
-
     data$inv_1[j+(i-1)*43][(data$id == n)] <- ((data$PPE[(j+ (i-1)*43)] / data$PPE[(j - 1)+(i-1)*43]) - 1 )
     
   }
 }
-
 data$inv_1[(data$Trimestre==2 & data$Anio ==2007)] <- NA
-
-
 data$efe <- NA
-
 for (i in n) {
   for(j in x){
-
     data$efe[j+(i-1)*43][(data$id == n)] <- ((data$Efectivo[(j+ (i-1)*43)] / data$Efectivo[(j - 1)+(i-1)*43]) - 1 )
     
   }
 }
-
 data$efe[(data$Trimestre==2 & data$Anio ==2007)] <- NA
-
-
 # Medida 2
-
 data$inv_2 <- NA
-
-
 for (i in n) {
   for(j in x){
-
     data$inv_2[j+(i-1)*43][(data$id == n)] <- ((data$Activos[(j+ (i-1)*43)] / data$Activos[(j - 1)+(i-1)*43]) - 1 )
     
   }
 }
-
 data$inv_2[(data$Trimestre==2 & data$Anio ==2007)] <- NA
-
-
 # Medida 3
-
 data$inv_3 <- NA
-
-
 for (i in n) {
   for(j in x){
     
@@ -235,84 +187,49 @@ for (i in n) {
     
   }
 }
-
-
 #Gráficas de la medida de inversión
-
-
 g1 <- data.frame(cbind(data$id, data$inv_1, data$date, data$Trimestre))
 names(g1) <- c("id","Medida", "Fecha", "q")
 g1$Fecha <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
 #Se elimianan a las empresas con NA en su medida
-
-
 nas <- g1[is.na(g1$Medida),]
 nas <- nas[(nas$q != 2),]
-
 borrar <- c(unique(nas$id, incomparables = FALSE))
-
 g1 <- g1[!(g1$id %in% borrar),] 
-
 h1 <- g1[!(g1$id %in% borrar),] 
  
 g1 <- aggregate(g1, by = list(g1$Fecha), mean)
-
-
-
 g2 <- data.frame(cbind(data$id, data$inv_2, data$date, data$Trimestre))
 names(g2) <- c("id","Medida2", "Fecha", "q")
 g2$Fecha <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
 #Se elimianan a las empresas con NA en su medida
-
 nas <- g2[is.na(g2$Medida2),]
 nas <- nas[(nas$q != 2),]
-
 borrar <- c(unique(nas$id, incomparables = FALSE))
-
 g2 <- g2[!(g2$id %in% borrar),] 
-
 h2 <- g2[!(g1$id %in% borrar),] 
   
 g2 <- aggregate(g2, by = list(g2$Fecha), mean)
-
-
 g3 <- data.frame(cbind(data$id, data$inv_3, data$date, data$Trimestre))
 names(g3) <- c("id","Medida3", "Fecha", "q")
 g3$Fecha <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
-
 #Se elimianan a las empresas con NA en su medida
-
 nas <- g3[is.na(g3$Medida3),]
-
 borrar <- c(unique(nas$id, incomparables = FALSE))
-
 g3 <- g3[!(g3$id %in% borrar),] 
   
 #g3 <- aggregate(g3, by = list(g3$Fecha), mean)
-
 #Para esta medida no hay nadie
-
 inv_mean <- left_join(g1,g2, by=c("Fecha"), copy = FALSE)
-
 #inv_mean <- left_join(inv_mean, g3, by = c("Fecha"), copy = FALSE)
-
 incluir <- c("Fecha","Medida", "Medida2")
-
 inv_mean <- inv_mean[ , (names(inv_mean) %in% incluir)]
-
 names(inv_mean) <- c("Medida 1", "Fecha", "Medida 2")
 library(reshape2)
 plot1 <- melt(inv_mean, id.vars="Fecha")
-
 #Se quita el primer dato
-
 plot1 <- plot1[(plot1$Fecha != "2007-04-01"),]
-
 library(ggplot2)
-
 graph1_T <- ggplot(plot1, aes(x=Fecha, y=value, color = variable , shape = variable)) +
   geom_line(aes(linetype=variable))+
   geom_point()+
@@ -321,51 +238,32 @@ graph1_T <- ggplot(plot1, aes(x=Fecha, y=value, color = variable , shape = varia
   ylab("Medidas de Inversión")+
   scale_color_brewer(palette = "Set2")+
   theme_bw() 
-
-
-
 ```
 
 
 
 ```{r b_walmex, echo=FALSE, include=FALSE}
-
 #walmex <- data[(data$NombreCorto == "WALMART"),]
-
 walmex$date <- Fecha <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
-
 #Medida de inversión
-
 n <- c(2:43)
-
 walmex$inv1 <- 0
-
 for (i in n) {
 walmex$inv1[i] <- (( walmex$PPE[i] / walmex$PPE[i - 1] ) - 1 )
 }
-
-
 #for (i in n) {
 #walmex$inv1[i] <- ( 1 - ( walmex$PPE[i - 1] / walmex$PPE[i]) )*100
 #}
-
 walmex$inv2 <- 0
-
 for (i in n) {
 walmex$inv2[i] <- (( walmex$Activos[i] / walmex$Activos[i - 1] ) - 1 )
 }
-
 inv_mean$`Medida 1` <- walmex$inv1
 inv_mean$Fecha <- walmex$date
 inv_mean$`Medida 2` <- walmex$inv2
-
 plott <- melt(inv_mean, id.vars="Fecha")
-
 #Se quita el primer dato
-
 plott <- plott[(plott$Fecha != "2007-04-01"),]
-
 grafo <- ggplot(plott, aes(x=Fecha, y=value, color = variable , shape = variable)) +
   geom_line(aes(linetype=variable))+
   geom_point()+
@@ -374,23 +272,15 @@ grafo <- ggplot(plott, aes(x=Fecha, y=value, color = variable , shape = variable
   ylab("Medidas de Inversión")+
   scale_color_brewer(palette = "Set2")+
   theme_bw() 
-
 ```
 
 
 
 
 ```{r, echo=FALSE,fig.width = 10 ,message=FALSE, warning=FALSE, fig.cap="Medidas de inversión", position = "!H", label = "g1"}
-
-
 library("gridExtra")
-
 grid.arrange(grafo + ggtitle("WALMEX"), graph1_T+ ggtitle("Promedio"), 
              ncol = 1, nrow = 2)
-
-
-
-
 ```
 
 
@@ -407,32 +297,18 @@ En la siguiente gráfica se puede observar el comportamiento de la $q$ de Tobin 
 Por su parte, la $q$ de Tobin de WALMEX presentó una tendencia a la baja durante los años 2007 y 2008 al igual que el promedio de la economía. Sin embargo, en contraste con la tendencia del promedio de las empresas, la q de Tobin de esta empresa se mantuvo estancada. Cabe destacar que este coeficiente es mucho menor al que se observa en el promedio de la economía.  
 
 ```{r c_promedio, echo=FALSE, include=FALSE}
-
 #q de Tobin
-
 #Valor de mercado
-
 data$Valor_M <- data$mkt_capital
-
 data$V_libros <- data$Activos - data$Deuda
-
 data$q <- data$Valor_M/ data$V_libros
-
 plot2 <- data.frame(cbind(data$q, data$date, data$id, data$efe))
-
 names(plot2) <- c("q", "date", "id", "Efectivo")
-
 nas <- plot2[is.na(plot2$q),]
-
 borrar <- c(unique(nas$id, incomparables = FALSE))
-
 plot2 <- plot2[!(plot2$id %in% borrar),] 
-
 plot3 <- aggregate(plot2, by = list(plot2$date), mean)
-
 plot3$date <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
-
 graph2_T <- ggplot(plot3, aes(x=date, y=q)) +
   geom_line(aes())+
   geom_point()+
@@ -442,20 +318,14 @@ graph2_T <- ggplot(plot3, aes(x=date, y=q)) +
   scale_color_brewer(palette = "Set2")+
   theme_bw()+ 
   ggtitle("Promedio")
-
 ```
 
 ```{r c_WALMEX, echo=FALSE, include=FALSE}
-
 #q de Tobin
-
 #Valor de mercado
-
 walmex$Valor_M <- walmex$mkt_capital
 walmex$V_libros <- walmex$Activos - walmex$Deuda
-
 walmex$q <- walmex$Valor_M/ walmex$V_libros
-
 graph2 <- ggplot(walmex, aes(x=date, y=q)) +
   geom_line(aes())+
   geom_point()+
@@ -465,18 +335,14 @@ graph2 <- ggplot(walmex, aes(x=date, y=q)) +
   scale_color_brewer(palette = "Set2")+
   theme_bw()+
   ggtitle("WALMEX")
-
 ```
 
 
 
 ```{r  echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.cap="q de Tobin", position = "!H", label = "g2"}
-
 library("gridExtra")
-
 grid.arrange(graph2, graph2_T, 
              ncol = 1, nrow = 2)
-
 ```
 
 \newpage
@@ -502,127 +368,88 @@ Adicionalmente, se realizaron regresiones con la $q$ de Tobin rezagada un period
 A continuación se muestran los resultados de dichas regresiones.
 
 ```{r include=FALSE}
-
 library(dplyr)
 library(tidyverse)
-
 h1 <- h1[, !(names(h1)=="q")]
-
 names(h1) = c("id", "inv_1", "date")
-
 plot2$date <- seq(as.Date("2007/4/1"), as.Date("2017/12/31"), by = "quarter")
-
 data_1 <- left_join(plot2, h1, by=c("date", "id"), copy = FALSE)
-
 data_1 <- data_1 %>% drop_na(inv_1)
-
 library(Hmisc)
 library(plm)
-
 data_1$x <- data_1$q -1
-
 data_1$q2 <-  Lag(data_1$x, -1)
-
 mod1 <- plm(inv_1 ~ x, data = data_1, index = c("id","date"), model="within", effect="individual")
 mod2 <- plm(inv_1 ~ q2, data = data_1, index = c("id","date"), model="within", effect="individual")
-
-
 h2 <- h2[, !(names(h2)=="q")]
-
 names(h2) = c("id", "inv_2", "date")
-
-
 data_2 <- left_join(plot2, h2, by=c("date", "id"), copy = FALSE)
-
 data_2 <- data_2 %>% drop_na(inv_2)
-
 data_2$x <- data_2$q -1
-
 data_2$q2 <-  Lag(data_2$x, -1)
-
-
 mod3 <- plm(inv_2 ~ x, data = data_2, index = c("id","date"), model="within", effect="individual")
 mod4 <- plm(inv_2 ~ q2, data = data_2, index = c("id","date"), model="within", effect="individual")
-
-
 names(inv_mean) = c("inv_1", "date", "inv_2")
-
 data2 <- left_join(plot3, inv_mean, by=c("date"), copy = FALSE)
-
 data2 <- data2[(data2$date != "2007-04-01"),]
-
 mod5 <- lm(inv_1 ~ q, data = data2)
 mod6 <- lm(inv_2 ~ q, data = data2)
-
-
 data2$q2 <-  Lag(data2$q, -1)
-
 mod7 <- lm(inv_1 ~ q2, data = data2)
 mod8 <- lm(inv_2 ~ q2, data = data2)
-
 mod1_R <- plm(inv_1 ~ x, data = data_1, index = c("id","date"), model="random", effect="individual")
 mod2_R <- plm(inv_1 ~ q2, data = data_1, index = c("id","date"), model="random", effect="individual")
-
 mod3_R <- plm(inv_2 ~ x, data = data_2, index = c("id","date"), model="random", effect="individual")
 mod4_R <- plm(inv_2 ~ q2, data = data_2, index = c("id","date"), model="random", effect="individual")
-
-
 phtest(mod1, mod1_R)
 phtest(mod2, mod2_R)
 phtest(mod3, mod3_R)
 phtest(mod4, mod4_R)
-
 ```
   
 ```{r , results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
-
 stargazer(mod1, mod2, mod3, mod4, 
-          style="aer",
+          #style="aer",
           title= "Inversión - q de Tobin (Fixed-effects) ",
           header = FALSE,
           #column.labels=c("Medida 1", "Medida 1", "Medida 2", "Medida 2"), 
           dep.var.caption = "Variable Dependiente",
           dep.var.labels = c("Medida 1", "Medida 2", "Promedio 1", "Promedio 2"),
           covariate.labels =  c("(q-1)", "($q_{t-1}$-1)", "Intercepto"),
-          notes.label = "P-valor",
+          #notes.label = "P-valor",
           type="latex",
+          single.row = TRUE,
           table.placement = "!h")
 ```
 
 ```{r , results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
-
 stargazer(mod1_R, mod2_R, mod3_R, mod4_R, 
-          style="aer",
+          #style="aer",
           title= "Inversión - q de Tobin (Random-effects) ",
           header = FALSE,
           #column.labels=c("Medida 1", "Medida 1", "Medida 2", "Medida 2"), 
           dep.var.caption = "Variable Dependiente",
           dep.var.labels = c("Medida 1", "Medida 2", "Promedio 1", "Promedio 2"),
           covariate.labels =  c("(q-1)", "($q_{t-1}-1$)", "Intercepto"),
-          notes.label = "P-valor",
+          #notes.label = "P-valor",
           type="latex",
+          single.row = TRUE,
           table.placement = "!h")
 ```
 
 
 ```{r include=FALSE}
-
 walmex$x <- (walmex$q - 1)
-
 walmex$q2 <-  Lag(walmex$x, -1)
-
 walmex <- walmex[(walmex$date != "2017-10-01"),]
-
 ```
 
 
 ```{r include=FALSE}
-
 reg1 <- lm(inv1 ~ x,  data  = walmex)
 reg2 <- lm(inv1 ~ q2, data  = walmex)
 reg3 <- lm(inv2 ~ x,  data  = walmex)
 reg4 <- lm(inv2 ~ q2, data  = walmex)
-
 ```
 
 ```{r eval=FALSE, include=FALSE}
@@ -632,18 +459,18 @@ reg4 <- lm(inv2 ~ q2, data  = walmex)
 
 
 ```{r , results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
-
 stargazer(reg1, reg2, reg3, reg4, 
-          style="aer",
+          #style="aer",
           title= "Inversión - q de Tobin (WALMEX)",
           header = FALSE,
           #column.labels=c("Medida 1", "Medida 1", "Medida 2", "Medida 2"), 
           dep.var.caption = "Variable Dependiente",
           dep.var.labels = c("Medida 1", "Medida 2", "Promedio 1", "Promedio 2"),
           covariate.labels =  c("q", "$q_{t-1}$", "Intercepto"),
-          notes.label = "P-valor",
+          #notes.label = "P-valor",
           type="latex",
-          table.placement = "!h")
+          single.row = TRUE,
+          table.placement = "!htbp")
 ```
 
 
@@ -745,14 +572,15 @@ En la siguiente tabla se muestra la regresión de Y con X, Y con $X_b$ y Y con $
 
 ```{r regresionYXbbb, results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
 stargazer(regYX, regYXb, regYXbb,
-          style="aer",
+          #style="aer",
           title= "Regresión",
           header = FALSE,
           #dep.var.caption = "Variable Dependiente",
           dep.var.labels = c("Y"),
           covariate.labels =  c("X", "Xb", "Xbb", "Intercepto"),
-          notes.label = "P-valor",
+          #notes.label = "P-valor",
           type="latex",
+          single.row = TRUE,
           table.placement = "!htbp")
 ```
 Como puede observarse, tanto los coeficientes como el ajuste del modelo cambia según la utilización de las medidas de error. Lo anterior responde a ciertas limitaciones en la estimación de $Y$ con respecto a $X$, ya que, en escencia, no se conocen las fuentes que originan las variaciones en la variable independiente o las fuentes que originan la existencia del error. Dicha falta de información en el modelo hace imposible saber si la variable independente y el error se encuentran correlacionados y que el coeficiente asociado a la variable independiente esté sesgado. La estimación de dos variables de medición y añadirlas a la regresión original permite reducir el sesgo del estimador, por lo que los coeficientes asociados a la variable X en las regresiones (2) y (3), en teoría, deben tener un menor sesgo al estimador presentado en la regresión (1) [@romer].
@@ -776,16 +604,10 @@ Al igual que las regresiones anteriores, se realizó el ejercicio para la empres
 
 
 ```{r include=FALSE}
-
-
 mod1_R <- plm(inv_1 ~ x + Efectivo, data = data_1, index = c("id","date"), model="random", effect="individual")
 mod2_R <- plm(inv_1 ~ q2 +Efectivo, data = data_1, index = c("id","date"), model="random", effect="individual")
 mod3_R <- plm(inv_2 ~ x +Efectivo, data = data_2, index = c("id","date"), model="random", effect="individual")
 mod4_R <- plm(inv_2 ~ q2 +Efectivo, data = data_2, index = c("id","date"), model="random", effect="individual")
-
-
-
-
 ```
 
 
@@ -799,33 +621,33 @@ regmulti4 <- lm(inv2 ~ q2 + Efectivo, data = walmex)
 
 
 ```{r , results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
-
 stargazer(regmulti1, regmulti2, regmulti3, regmulti4, 
-          style="aer",
+          #style="aer",
           title= "Inversión - q de Tobin (WALMEX)",
           header = FALSE,
           #column.labels=c("Medida 1", "Medida 1", "Medida 2", "Medida 2"), 
           dep.var.caption = "Variable Dependiente",
           dep.var.labels = c("Medida 1", "Medida 2", "Promedio 1", "Promedio 2"),
           covariate.labels =  c("(q-1)", "$(q_{t-1}-1)$", "Efectivo", "Intercepto"),
-          notes.label = "P-valor",
+          #notes.label = "P-valor",
           type="latex",
-          table.placement = "!h")
+          single.row = TRUE,
+          table.placement = "!htbp")
 ```
 
 ```{r , results = 'asis', echo = FALSE, message=FALSE, warning=FALSE}
-
 stargazer(mod1_R, mod2_R, mod3_R, mod4_R, 
-          style="aer",
+          #style="aer",
           title= "Inversión - q de Tobin (Random-effects) ",
           header = FALSE,
           #column.labels=c("Medida 1", "Medida 1", "Medida 2", "Medida 2"), 
           dep.var.caption = "Variable Dependiente",
           dep.var.labels = c("Medida 1", "Medida 2", "Promedio 1", "Promedio 2"),
           covariate.labels =  c("(q-1)", "($q_{t-1}-1$)", "Efectivo", "Intercepto"),
-          notes.label = "P-valor",
+          #notes.label = "P-valor",
           type="latex",
-          table.placement = "!h")
+          single.row = TRUE,
+          table.placement = "!htbp")
 ```
 
 Como puede verse, para el caso de la totalidad de las empresas, el estimador asociado al flujo de efectivo resulta no ser estadísticamente significativo para el caso de la Medida 1 de la inversión, de tal manera que el ajuste general del modelo, medido por la $R^2$ no es distinto respecto a la primer estimación. En lo que respecta a las estimaciones para la Medida 2 de la inversión, se encuentra que el estimador asociado al flujo de efectivo es estadísticamente significativo, aunque cercano a cero, lo que provoca una ligera variación de los estimadores asociados a la $q$ de Tobin en ambos casos. Además, es evidente que la $R^2$ de estos modelos es superior a los primeros modelos, lo que indica que añadir al flujo de efectivo como variable explicativa aumenta el ajuste general del modelo, lo que puede implicar que se eliminó el sesgo de los estimadores asociados a las $q$.
@@ -833,4 +655,5 @@ Como puede verse, para el caso de la totalidad de las empresas, el estimador aso
 En el caso de WALMEX, se encuentra que ningún estimador es estadísticamente significativo, lo que indica que la adición de una nueva variable explicativa no reduce el sesgo del estimador asociado a la $q$ de Tobin.
 
 \newpage
+
 
