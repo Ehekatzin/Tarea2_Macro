@@ -13,7 +13,7 @@ library(ggplot2)
 options(knitr.duplicate.label = "allow")
 ```
 
-## Ejercicio 9.1
+## Problema 9.1
 Considere una firma que genera un producto utilizando una combinación de capital y trabajo tipo Cobb-Douglas: $Y=K^\alpha L^{1-\alpha}$ donde $0<\alpha<1$. Suponga que el precio de la firma es fijo en el corto plazo; así que toma como dados tanto el precio de su producto, $P$, como la cantidad producida $Y$. El mercado de insumos es competitivo; así que la firma toma los salrios $W$, y la renta del precio del capital $r_K$, como dados.
 
 \begin{description}
