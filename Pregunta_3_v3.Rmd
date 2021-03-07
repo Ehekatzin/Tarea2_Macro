@@ -587,10 +587,10 @@ Lo anterior se relaciona con las estimaciones realizadas y los estimadores asoci
 
 ### Inciso h)
 
-Se añada el flujo de efectivo (medido como la variación del efectivo de la empresa respecto al periodo inmediato anterior) a las regresiones propuestas anteriormente, tal que:
+Se añade el flujo de efectivo (medido como la variación del efectivo de la empresa respecto al periodo inmediato anterior) a las regresiones propuestas anteriormente, tal que:
 
 \begin{equation}
-\frac{I_t}{K_t} = c + b[q_t -1]+\gamma Efectivo \epsilon_t
+\frac{I_t}{K_t} = c + b[q_t -1]+\gamma Efectivo + \epsilon_t
 \end{equation}
 
 Al igual que las regresiones anteriores, se realizó el ejercicio para la empresas WALMEX y para la totalidad de las empresas, utilizando como variables dependientes la Medida 1 y la Medida 2 para la inversión y tomando como variables independientes la $q$ de Tobin del periodo y la de el periodo anterior.
