@@ -106,7 +106,7 @@ Ev/EBITDA                & 75,386.91                 \\ \hline
 \end{minipage}}
 \end{table}
 
-Para encontrar el valor de capitalización bursátil simplemente se multiplica el precio de cotización de las acciones por el número de éstas en el mercado. De esta forma, se obtiene que el valor de capitalización bursátil. Por lo tanto el valor de capitalización bursátil es de 1860.75 mdp. \footnote{Se utilizo el precio de cierre de 59.68 y un número de acciones de 31,178,721 , que fue extraido de la [BMV](https://www.bmv.com.mx/es/mercados/capitales).}
+Para encontrar el valor de capitalización bursátil simplemente se multiplica el precio de cotización de las acciones por el número de éstas en el mercado. De esta forma, se obtiene que el valor de capitalización bursátil. Por lo tanto el valor de capitalización bursátil es de 1860.75 mdp. \footnote{Se utilizo el precio de cierre de 59.68 y un número de acciones de 31,178,721, que fue extraido de la BMV.}
 
 Teniendo en cuenta los datos obtenidos anteriormente, se procede a construir la \textit{Q} promedio mediante la siguiente fórmula:
 
