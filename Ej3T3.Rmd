@@ -1,0 +1,160 @@
+---
+title: "Ej181"
+author: "Sergio Vargas"
+date: "5/2/2021"
+output: pdf_document
+header-includes:
+   - \usepackage{enumitem}
+---
+
+
+
+```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+library(tseries)
+library(cowplot)
+#library(car)
+library(tinytex)
+library(ggplot2)
+library(tidyverse)
+library(lubridate)
+library(reshape2)
+library(gridExtra)
+
+```
+
+## Problema 3
+
+Contraste un modelo trivial de la determinación del salario con los datos:
+
+a) Obtenga una serie del PIB $Y_t$ de la economía.
+
+b) Obtenga una serie del capital $K_t$ de la economía (Indice de Volumen físico acumulado).
+
+c) Obtenga una serie del empleo $L_t$ de la economía.
+
+d) Cree una serie de la productividad $A_t$ de la economía a partir de asumir una función de producción $Y_t=A_tF(K,L)$, con $F(K,L)=K^{.3}L^{.7}$.
+
+e) Cree una serie contrafactual del salario que se debió de haber observado si el salario fuera el ingreso marginal del trabajo $A_tF_L(K_t,L_t)$.
+
+f) Compare el salario observado con el salario contrafactual a la luz de los hechos estilizados y las teorías descritas en clase.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rm(list = ls())
+
+series_data <- read_excel("C:/Users/sergi/Documents/R/serie_productividad.xlsx")
+
+
+Fecha <- seq(as.Date("2007/01/01"), as.Date("2020/12/30"), by = "quarter")
+Fecha2 <- Fecha[2:56]
+
+h1 <- data.frame(cbind(Fecha, series_data$PIB/1000))
+                       #, series_3$dG, series_3$dI, series_3$dXN, series_3$dY))
+
+h2 <- data.frame(cbind(Fecha, series_data$`Población ocupada`/1000))
+
+h3 <- data.frame(cbind(Fecha, series_data$`Indice de volumen físico`))
+
+h7 <- data.frame(cbind(Fecha, series_data$`Salario Doll`))
+
+h9 <- data.frame(cbind(Fecha, series_data$Desocupación))
+
+
+names(h1) = c("Periodo", "PIB")
+              #, "Gasto", "Inversión", "Exportaciones netas", "Producto")
+
+names(h2) = c("Periodo", "Poblacion Ocupada")
+names(h3) = c("Periodo", "Volumen Fisico")
+names(h7) = c("Periodo", "Salario Obs")
+names(h9) = c("Periodo", "Desocupación")
+
+
+h1$Periodo <- seq(as.Date("2007/1/1"), as.Date("2020/12/30"), by = "quarter")
+h2$Periodo <- seq(as.Date("2007/1/1"), as.Date("2020/12/30"), by = "quarter")
+h3$Periodo <- seq(as.Date("2007/1/1"), as.Date("2020/12/30"), by = "quarter")
+h7$Periodo <- seq(as.Date("2007/1/1"), as.Date("2020/12/30"), by = "quarter")
+h9$Periodo <- seq(as.Date("2007/1/1"), as.Date("2020/12/30"), by = "quarter")
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+h1 <- melt(h1, id.vars= "Periodo")
+h2 <- melt(h2, id.vars= "Periodo")
+h3 <- melt(h3, id.vars= "Periodo")
+h7 <- melt(h7, id.vars= "Periodo")
+h9 <- melt(h9, id.vars= "Periodo")
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+graph1 <- ggplot(h1, aes(x=Periodo, y=value, group=variable, color = variable , shape = variable)) +
+  geom_line(aes(linetype=variable))+
+  geom_point()+
+  theme_classic()+
+  xlab("")+
+  ylab("")+
+  scale_color_brewer(palette = "Set1")+
+  theme_bw()
+
+graph2 <- ggplot(h2, aes(x=Periodo, y=value, group=variable, color = variable , shape = variable)) +
+  geom_line(aes(linetype=variable))+
+  geom_point()+
+  theme_classic()+
+  xlab("")+
+  ylab("")+
+  scale_color_brewer(palette = "Set2")+
+  theme_bw()
+
+graph3 <- ggplot(h3, aes(x=Periodo, y=value, group=variable, color = variable , shape = variable)) +
+  geom_line(aes(linetype=variable))+
+  geom_point()+
+  theme_classic()+
+  xlab("")+
+  ylab("")+
+  scale_color_brewer(palette = "Set3")+
+  theme_bw()
+
+graph7 <- ggplot(h7, aes(x=Periodo, y=value, group=variable, color = variable , shape = variable)) +
+  geom_line(aes(linetype=variable))+
+  geom_point()+
+  theme_classic()+
+  xlab("")+
+  ylab("")+
+  scale_color_brewer(palette = "Set3")+
+  theme_bw()
+
+#graph9 <- ggplot(h9, aes(x=Periodo, y=value, group=variable, color = variable , shape = variable)) +
+ # geom_line(aes(linetype=variable))+
+  #geom_point()+
+  #theme_classic()+
+  #xlab("")+
+  #ylab("")+
+  #scale_color_brewer(palette = "Set2")+
+  #theme_bw()
+
+
+```
+
+### Solución
+
+### Inciso a) 
+
+
+Se tomó la serie desestacionalizada del producto interno bruto a precios de mercado (Millones de pesos a precios de 2013) del Banco de información económica del INEGI. 
+A continuación se muestra una gráfica con los datos del periodo 2007-2020.
+En la gráfica podemos observar la tendencia positiva del PIB asi como las caidas en este debido a las crisis de 2008 y 2020.
+
+```{r graf1, echo=FALSE, fig.cap="Producto Interno Bruto en miles de millones de pesos (Precios 2013)", fig.pos="H", message=FALSE, warning=FALSE, lable="graf1"}
+
+graph1
+
+```
+
+\newgape
+
+
+
+
+
